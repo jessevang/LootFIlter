@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Class\" />
     <Folder Include="HarmonyPatching\" />
   </ItemGroup>
 

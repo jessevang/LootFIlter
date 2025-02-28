@@ -2,11 +2,19 @@
   "Name": "LootFilter",
   "Author": "Darkmushu1",
   "Version": "1.0.0",
-  "Description": "Filter loot drops so only certain items are automatically picked up.",
+  "Description": "Set what what items gets automatically picked up and which doesn't. ",
   "UniqueID": "Darkmushu1.LootFilter",
   "EntryDll": "LootFilter.dll",
   "MinimumApiVersion": "4.0.0",
-  "UpdateKeys": [ "" ] //replace this text and 000001 with your nexus mode ID
+  "UpdateKeys": [ "" ], //replace this text and 000001 with your nexus mode ID
+
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "IsRequired": false
+    }
+  ]
+
 }
 
 
