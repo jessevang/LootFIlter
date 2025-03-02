@@ -40,8 +40,13 @@ internal class addItemToInventoryBoolPatch : BasePatcher
             return true;
         }
 
+        //if loot filter is turned off runs original code
+        if (!Instance.LootFilterOn)
+        {
+            return true;
+        }
 
-        Console.WriteLine("ItemName: " + item.Name+ "  ItemID: " + item.ItemId);
+        //Console.WriteLine("ItemName: " + item.Name+ "  ItemID: " + item.ItemId);
 
         var filteredItem = Instance.Config.ObjectToFilter.FirstOrDefault(f =>
             f.ItemId.Contains(item.ItemId) && f.ShouldFilter);
