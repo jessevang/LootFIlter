@@ -23,7 +23,8 @@ namespace LootFilter
         public String note001 { get; set; } = "Set keyboard or Gamepad hotkey that would toggle loot filter on and off inside game.";
         public Keys KeyboardHotkeyToTurnOffLootFiltering { get; set; } = Keys.Z;
         public Buttons GamePadHotkeyToTurnOffLootFiltering { get; set; } = Buttons.LeftStick;
-
+        public int distanceFilterItemMovesAwayFromPlayer { get; set; } = 3;
+        
         public String note010 { get; set; } = "Change ShouldFilter to True to filter Object Items on ground";
 
         public List<FilteredItem> ObjectToFilter { get; set; } = new List<FilteredItem>
@@ -589,98 +590,6 @@ namespace LootFilter
             new FilteredItem { ShouldFilter = false, ItemId ="157" , Name = "White Algae", Category = "Fish"},
             new FilteredItem { ShouldFilter = false, ItemId ="734" , Name = "Woodskip", Category = "Fish"},
             new FilteredItem { ShouldFilter = false, ItemId ="PotOfGold" , Name = "PotOfGold", Category = "interactive"},
-            new FilteredItem { ShouldFilter = false, ItemId ="GreenRainWeeds0" , Name = "GreenRainWeeds0", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="GreenRainWeeds1" , Name = "GreenRainWeeds1", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="GreenRainWeeds2" , Name = "GreenRainWeeds2", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="GreenRainWeeds3" , Name = "GreenRainWeeds3", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="GreenRainWeeds4" , Name = "GreenRainWeeds4", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="GreenRainWeeds5" , Name = "GreenRainWeeds5", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="GreenRainWeeds6" , Name = "GreenRainWeeds6", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="GreenRainWeeds7" , Name = "GreenRainWeeds7", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="2" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="4" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="6" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="8" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="10" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="12" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="14" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="32" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="34" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="36" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="38" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="40" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="42" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="44" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="46" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="48" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="50" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="52" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="54" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="56" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="58" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="75" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="76" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="77" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="95" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="290" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="343" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="450" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="668" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="670" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="751" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="760" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="762" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="764" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="765" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="25" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="816" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="817" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="818" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="819" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="843" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="844" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="845" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="846" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="847" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="849" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="850" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="CalicoEggStone_0" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="CalicoEggStone_1" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="CalicoEggStone_2" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="VolcanoGoldNode" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="VolcanoCoalNode0" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="VolcanoCoalNode1" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="BasicCoalNode0" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="BasicCoalNode1" , Name = "Stone", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="294" , Name = "Twig", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="295" , Name = "Twig", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="0" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="313" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="314" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="315" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="316" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="317" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="318" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="319" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="320" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="321" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="452" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="674" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="675" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="676" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="677" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="678" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="679" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="750" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="784" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="785" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="786" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="792" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="793" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="794" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="882" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="883" , Name = "Weeds", Category = "Litter"},
-            new FilteredItem { ShouldFilter = false, ItemId ="884" , Name = "Weeds", Category = "Litter"},
             new FilteredItem { ShouldFilter = false, ItemId ="541" , Name = "Aerinite", Category = "Minerals"},
             new FilteredItem { ShouldFilter = false, ItemId ="538" , Name = "Alamite", Category = "Minerals"},
             new FilteredItem { ShouldFilter = false, ItemId ="66" , Name = "Amethyst", Category = "Minerals"},
@@ -850,20 +759,45 @@ namespace LootFilter
 
     internal sealed class ModEntry : Mod
     {
+        public static IMonitor ModMonitor;
+
         public static ModEntry Instance { get; private set; }
         public ModConfig Config { get; private set; }
         public bool LootFilterOn = true;
-
+        public IGenericModConfigMenuApi configMenu;
+        private Harmony _harmony;
         public override void Entry(IModHelper helper)
         {
-
+            _harmony = new Harmony(ModManifest.UniqueID);
             Instance = this; 
             Config = helper.ReadConfig<ModConfig>() ?? new ModConfig(); // Sample to call --> int somevalue = Instance.Config.Somevalues; 
-
+/*
             //Sample to Apply a Patch from patches folder. Used this if you want to use a replace an existing stardew valley function some other other code.
             HarmonyPatcher.Apply(this,
             new addItemToInventoryBoolPatch(Config, Instance)
             );
+*/
+
+            ModMonitor = Monitor;
+
+            // Load config
+            Config = helper.ReadConfig<ModConfig>();
+
+            // Create a Harmony instance with a unique ID
+            var harmony = new Harmony(ModManifest.UniqueID);
+
+            // Apply the custom patch
+            new addItemToInventoryBoolPatch(Config).Apply(harmony, Monitor);
+
+            // Log for debugging
+            Monitor.Log("Loot Filter mod loaded and patched successfully!", LogLevel.Info);
+
+            /*
+            // Apply Harmony Patches for private functions
+            var PlayerInRangePatch = new PlayerInRangePatch(Config, Instance);
+            PlayerInRangePatch.Apply(_harmony, Monitor);
+            */
+
 
             helper.Events.Input.ButtonPressed += Input_ButtonPressed;
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
@@ -871,148 +805,21 @@ namespace LootFilter
 
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
-            createGenericModMenu();
-            //testMenu();
-
-        }
-
-        private void testMenu()
-        {
-            var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
-
-            if (configMenu is null)
-            {
-                Monitor.Log("GMCM API not found!", LogLevel.Warn);
-                return;
-            }
-
-            Monitor.Log("GMCM API successfully loaded!", LogLevel.Info);
-
-            // Register the config menu
-            configMenu.Register(
-                mod: this.ModManifest,
-                reset: () => this.Config = new ModConfig(),
-                save: () => this.Helper.WriteConfig(this.Config)
-            );
-
-            Monitor.Log("GMCM menu registered!", LogLevel.Info);
-
-            // Keyboard hotkey on main page
-            configMenu.AddKeybind(
-                mod: this.ModManifest,
-                name: () => "Toggle Loot Filter (Keyboard)",
-                getValue: () =>
-                {
-
-                    return Config.KeyboardHotkeyToTurnOffLootFiltering.ToSButton();
-                },
-                setValue: value =>
-                {
-
-                    Config.KeyboardHotkeyToTurnOffLootFiltering = (Keys)value;
-                }
-            );
-
-            // Keyboard hotkey on main page
-            configMenu.AddKeybind(
-                mod: this.ModManifest,
-                name: () => "Toggle Loot Filter (Gamepad)",
-                getValue: () =>
-                {
-                    // Convert stored string to SButton
-                    return Config.GamePadHotkeyToTurnOffLootFiltering.ToSButton();
-
-
-                },
-                setValue: value =>
-                {
-                    // Convert SButton to string and store it
-                    Config.GamePadHotkeyToTurnOffLootFiltering = (Buttons)value;
-                }
-            );
-
-            //createPageLinks(configMenu);
-
-
-
-            // Add section for filtering options
-            configMenu.AddSectionTitle(this.ModManifest, () => "Filter Loot Pick Up");
-
-            foreach (var item in this.Config.ObjectToFilter)
-            {
-                configMenu.AddBoolOption(
-                    mod: this.ModManifest,
-                    name: () => $"{item.Name}  (:{item.Category})",
-                    getValue: () => item.ShouldFilter,
-                    setValue: value => item.ShouldFilter = value
-
-                );
-
-            }
-
-
-            //goBackToMain(configMenu);
-
-            // ✅ FIRST: Add main page before options
-            configMenu.AddPage(this.ModManifest, "Main", () => "Loot Filter Settings");
-            Monitor.Log("Main page added!", LogLevel.Info);
-
-            // ✅ THEN: Add Page Links
-            configMenu.AddPageLink(
-                mod: this.ModManifest,
-                pageId: "WeaponFilter",
-                text: () => "Weapon Filter",
-                tooltip: () => "Click to configure weapon filters"
-            );
-
-            Monitor.Log("Weapon Filter PageLink added!", LogLevel.Info);
-
-            // ✅ NOW: Add options after pages are declared
-            configMenu.AddSectionTitle(this.ModManifest, () => "Filtered Items");
-            Monitor.Log("Section Title added!", LogLevel.Info);
-
-            // Example option
-            configMenu.AddKeybind(
-                mod: this.ModManifest,
-                name: () => "Toggle Loot Filter (Keyboard)",
-                getValue: () =>
-                {
-
-                    return Config.KeyboardHotkeyToTurnOffLootFiltering.ToSButton();
-                },
-                setValue: value =>
-                {
-
-                    Config.KeyboardHotkeyToTurnOffLootFiltering = (Keys)value;
-                }
-            );
-
-            Monitor.Log("Test Bool Option added!", LogLevel.Info);
-
-            // ✅ SECOND PAGE
-            configMenu.AddPage(this.ModManifest, "WeaponFilter", () => "Weapon Filter");
-            Monitor.Log("Weapon Filter Page added!", LogLevel.Info);
-
-            configMenu.AddPageLink(
-                mod: this.ModManifest,
-                pageId: "Main",
-                text: () => "Back",
-                tooltip: () => "Return to main settings"
-            );
-
-            Monitor.Log("Back to Main PageLink added!", LogLevel.Info);
-        }
-
-
-
-        private void createGenericModMenu()
-        {
-
-
             // Get Generic Mod Config Menu's API (if it's installed)
-            var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
+            configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
             if (configMenu is null)
                 return;
+            RegisterAndAddLootFilterGenericModMenu();
+        
+
+
+        }
+
+
+
+
+        private void RegisterAndAddLootFilterGenericModMenu()
+        {
 
             // Register mod
             configMenu.Register(
@@ -1057,17 +864,25 @@ namespace LootFilter
             );
 
 
+            configMenu.AddNumberOption(
+                mod: this.ModManifest,
+                name: () => $"# tiles Filtered Items are moved away",
+                getValue: () => Config.distanceFilterItemMovesAwayFromPlayer,
+            setValue: value => Config.distanceFilterItemMovesAwayFromPlayer = value
+            );
+
+
             //Page Links on Main Page ---------------------------------------
 
 
-           /* configMenu.AddSectionTitle(this.ModManifest, () => "Loot Filter Categories");
-            configMenu.AddPageLink(
-                mod: this.ModManifest,
-                pageId: "AllItems",
-                text: () => "All Items",
-                tooltip: () => "Filter All Items"
-            );
-           */
+            /* configMenu.AddSectionTitle(this.ModManifest, () => "Loot Filter Categories");
+             configMenu.AddPageLink(
+                 mod: this.ModManifest,
+                 pageId: "AllItems",
+                 text: () => "All Items",
+                 tooltip: () => "Filter All Items"
+             );
+            */
             configMenu.AddPageLink(
                 mod: this.ModManifest,
                 pageId: "Artifacts",
@@ -1110,12 +925,7 @@ namespace LootFilter
                 text: () => "interactive",
                 tooltip: () => "Filter interactive"
             );
-            configMenu.AddPageLink(
-                mod: this.ModManifest,
-                pageId: "Litter",
-                text: () => "Litter",
-                tooltip: () => "Filter Litter"
-            );
+
             configMenu.AddPageLink(
                 mod: this.ModManifest,
                 pageId: "Minerals",
@@ -1176,18 +986,25 @@ namespace LootFilter
                  pageTitle: () => "Filter Artifacts"
                  );
 
+
+
+
+
             configMenu.AddSectionTitle(this.ModManifest, () => "Filter -->[Artifacts]<-- ");
             foreach (var item in this.Config.ObjectToFilter)
             {
+      
+                    
+                    if (item.Category.Contains("Arch")){
+                        configMenu.AddBoolOption(
+                            mod: this.ModManifest,
+                            name: () => $"{item.Name} ",
+                            getValue: () => item.ShouldFilter,
+                        setValue: value => item.ShouldFilter = value
+                        );
+                    }
                 
-                if (item.Category.Contains("Arch")){
-                    configMenu.AddBoolOption(
-                        mod: this.ModManifest,
-                        name: () => $"{item.Name} ",
-                        getValue: () => item.ShouldFilter,
-                    setValue: value => item.ShouldFilter = value
-                    );
-                }
+             
 
             }
 
@@ -1335,29 +1152,7 @@ namespace LootFilter
 
             }
 
-            //8. Sort Objects by Litter
-            configMenu.AddPage(
-                 mod: this.ModManifest,
-                 pageId: "Litter",
-                 pageTitle: () => "Filter Litter"
-                 );
-            configMenu.AddSectionTitle(this.ModManifest, () => " -->[Litter]<-- ");
-
-            foreach (var item in this.Config.ObjectToFilter)
-            {
-                if (item.Category.Contains("Litter"))
-                {
-
-                    configMenu.AddBoolOption(
-                        mod: this.ModManifest,
-                        name: () => $"{item.Name} ",
-                        getValue: () => item.ShouldFilter,
-                        setValue: value => item.ShouldFilter = value
-
-                    );
-                }
-
-            }
+         
 
 
             //9.Sort Objects by Minerals
@@ -1465,35 +1260,6 @@ namespace LootFilter
 
         }
 
-        private void goBackToMain(IGenericModConfigMenuApi configMenu)
-        {
-            configMenu.AddPageLink(
-                  mod: this.ModManifest,
-                  pageId: "Main",
-                  text: () => "Back",
-                  tooltip: () => "Return to main settings"
-              );
-
-        }
-
-        private void createPageLinks(IGenericModConfigMenuApi configMenu)
-        {
-            configMenu.AddPageLink(
-                  mod: this.ModManifest,
-                  pageId: "Object Filter",
-                  text: () => "Object Filter",
-                  tooltip: () => "Click to Configure Object Loot Filter"
-              );
-            configMenu.AddPageLink(
-                  mod: this.ModManifest,
-                  pageId: "Weapon Filters",
-                  text: () => "Weapon Filters",
-                  tooltip: () => "Click to Configure Weapon Loot Filter"
-            );
-
-
-        }
-
 
         private void Input_ButtonPressed(object? sender, StardewModdingAPI.Events.ButtonPressedEventArgs e)
         {
@@ -1514,9 +1280,11 @@ namespace LootFilter
                 
                 if (!LootFilterOn)
                 {
-                   // Instance = this;
-                   // ReloadConfig();
-                   
+                    //Instance = this;
+                     ReloadConfig();
+                    //configMenu.Unregister(Instance.ModManifest);
+                    //RegisterAndAddLootFilterGenericModMenu();
+
                 }
                 
 
@@ -1529,13 +1297,7 @@ namespace LootFilter
         {
             // Reload the config file
             Config = null;
-           // Config = Helper.ReadConfig<ModConfig>();
-
-            // Log a message to confirm the config was reloaded
-            Monitor.Log("Config reloaded successfully!", LogLevel.Info);
-
-          //  createGenericModMenu();
-
+            Config = Helper.ReadConfig<ModConfig>();
 
         }
 
