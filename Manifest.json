@@ -1,12 +1,12 @@
 {
   "Name": "LootFilter",
   "Author": "Darkmushu1",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "Description": "Prevents filtered loot from magnet pick up",
   "UniqueID": "Darkmushu1.LootFilter",
   "EntryDll": "LootFilter.dll",
   "MinimumApiVersion": "4.0.0",
-  "UpdateKeys": [ "" ] 
+  "UpdateKeys": [ "Nexus:32073" ] 
 
 }
 
