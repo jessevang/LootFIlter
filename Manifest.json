@@ -6,8 +6,14 @@
   "UniqueID": "Darkmushu1.LootFilter",
   "EntryDll": "LootFilter.dll",
   "MinimumApiVersion": "4.0.0",
-  "UpdateKeys": [ "Nexus:32073" ] 
-
+  "UpdateKeys": [ "Nexus:32073" ],
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "IsOptional": true,
+      "MinimumVersion": "1.6.0"
+    }
+  ]
 }
 
 
