@@ -50,7 +50,7 @@ namespace LootFilter
 
             _harmony = new Harmony(ModManifest.UniqueID);
             Instance = this;
-            Config = helper.ReadConfig<ModConfig>() ?? new ModConfig(); 
+            Config = helper.ReadConfig<ModConfig>() ?? new ModConfig();
 
             ModMonitor = Monitor;
 
@@ -58,11 +58,11 @@ namespace LootFilter
              new addItemToInventoryBoolPatch(Config, Instance)
              );
 
-            
+
             helper.Events.Input.ButtonPressed += Input_ButtonPressed;
             helper.Events.GameLoop.GameLaunched += GameLoop_GameLaunched;
 
-    
+
         }
 
         private void GameLoop_GameLaunched(object? sender, GameLaunchedEventArgs e)
@@ -138,7 +138,7 @@ namespace LootFilter
                 min: 5,
                 max: 40,
                 interval: 1
-      
+
 
             );
 
@@ -155,23 +155,32 @@ namespace LootFilter
                 LootFilterOn = !LootFilterOn;
                 string message = LootFilterOn ? "Loot Filter is turned on" : "Loot Filter is turned off";
                 int type = LootFilterOn ? 4 : 3;
+
                 Game1.addHUDMessage(new HUDMessage(message, type));
                 return;
             }
 
             if (e.Button == Config.KeyboardToggleFilterThisItem.ToSButton() || e.Button == Config.GamepadToggleFilterThisItem.ToSButton())
             {
-                if(Game1.activeClickableMenu != null)
+                if (Game1.activeClickableMenu != null)
                 {
 
-               
-                    // Check if the player is currently holding an item in the cursor.
-                    StardewValley.Object heldItem = Game1.player.CursorSlotItem as StardewValley.Object;
 
-                    if (heldItem != null)
+                    // Check if the player is currently holding an item in the cursor.
+                    StardewValley.Item itemHeld = Game1.player.CursorSlotItem as StardewValley.Item;
+
+                    //StardewValley.Object heldItem = Game1.player.CursorSlotItem as StardewValley.Object;
+
+                    if (itemHeld != null)
                     {
+
                         // Use the held item's ParentSheetIndex as a unique identifier.
-                        string itemID = heldItem.ParentSheetIndex.ToString();
+                        string itemID = itemHeld.GetItemTypeId() + itemHeld.ItemId;
+
+                        Console.WriteLine("itemID: " + itemID );
+
+
+                        // string itemID = itemHeld.ParentSheetIndex.ToString();
                         FilteredItem fi = Config.ObjectToFilter.Find(i => i.ItemId == itemID);
 
                         if (fi != null)
@@ -180,13 +189,13 @@ namespace LootFilter
                             fi.ShouldFilter = !fi.ShouldFilter;
                             if (fi.ShouldFilter)
                             {
-                                Game1.addHUDMessage(new HUDMessage($"Item {heldItem.Name} filter set to {fi.ShouldFilter}", 4));
+                                Game1.addHUDMessage(new HUDMessage($"Item {itemHeld.Name} filter set to {fi.ShouldFilter}", 4));
                             }
                             else
                             {
-                                Game1.addHUDMessage(new HUDMessage($"Item {heldItem.Name} filter set to {fi.ShouldFilter}", 3));
+                                Game1.addHUDMessage(new HUDMessage($"Item {itemHeld.Name} filter set to {fi.ShouldFilter}", 3));
                             }
-                            
+
                         }
                         else
                         {
@@ -194,11 +203,11 @@ namespace LootFilter
                             fi = new FilteredItem
                             {
                                 ItemId = itemID,
-                                Name = heldItem.Name,
+                                Name = itemHeld.Name,
                                 ShouldFilter = true
                             };
                             Config.ObjectToFilter.Add(fi);
-                            Game1.addHUDMessage(new HUDMessage($"New Item {heldItem.Name} added and marked for filtering", 4));
+                            Game1.addHUDMessage(new HUDMessage($"New Item {itemHeld.Name} added and marked for filtering", 4));
                         }
 
                         // Save the updated configuration.
@@ -215,7 +224,31 @@ namespace LootFilter
 
         }
 
+
+
+
+        private string GetItemID(Item item)
+        {
+            if (item is StardewValley.Object objItem)
+            {
+                return objItem.ParentSheetIndex.ToString();
+            }
+            else if (item is StardewValley.Tools.MeleeWeapon weapon)
+            {
+                return weapon.InitialParentTileIndex.ToString(); // Weapons use InitialParentTileIndex
+            }
+            else if (item is StardewValley.Objects.Clothing clothing)
+            {
+                return clothing.clothesType.ToString() + "_" + clothing.ParentSheetIndex.ToString(); // Clothing items
+            }
+            else if (item is StardewValley.Tool tool)
+            {
+                return tool.BaseName; // Tools (e.g., Pickaxe, Hoe) use BaseName
+            }
+            return item.Name; // Fallback for other item types
+        }
     }
+
 
     /// <summary>The API which lets other mods add a config UI through Generic Mod Config Menu.</summary>
     public interface IGenericModConfigMenuApi

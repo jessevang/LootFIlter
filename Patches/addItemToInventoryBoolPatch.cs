@@ -46,10 +46,11 @@ internal class addItemToInventoryBoolPatch : BasePatcher
             return true;
         }
 
-        //Console.WriteLine("ItemName: " + item.Name+ "  ItemID: " + item.ItemId);
 
+        string itemID = item.GetItemTypeId() + item.ItemId;
+        Console.WriteLine("ItemID: " + itemID);
         var filteredItem = Instance.Config.ObjectToFilter.FirstOrDefault(f =>
-            f.ItemId.Contains(item.ItemId) && f.ShouldFilter);
+            f.ItemId.Contains(itemID) && f.ShouldFilter);
 
         if (filteredItem != null)
         {
@@ -68,7 +69,8 @@ internal class addItemToInventoryBoolPatch : BasePatcher
                 int tileY = (int)player.Tile.Y; // Same Y level
 
                 // Spawn the object at the specified location
-                Game1.createObjectDebris(filteredItem.ItemId, tileX, tileY, player.UniqueMultiplayerID);
+                
+                Game1.createObjectDebris(itemID, tileX, tileY, player.UniqueMultiplayerID);
 
                 return false;
             }
