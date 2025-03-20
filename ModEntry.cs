@@ -176,7 +176,7 @@ namespace LootFilter
                         // Use the held item's ParentSheetIndex as a unique identifier.
                         string itemID = itemHeld.GetItemTypeId() + itemHeld.ItemId;
 
-                        Console.WriteLine("itemID: " + itemID );
+                        //Console.WriteLine("itemID: " + itemID );
 
 
                         // string itemID = itemHeld.ParentSheetIndex.ToString();

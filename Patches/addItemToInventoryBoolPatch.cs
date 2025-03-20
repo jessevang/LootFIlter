@@ -4,6 +4,8 @@ using StardewValley;
 using HarmonyLib;
 using Spacechase.Shared.Patching;
 using LootFilter;
+using Microsoft.Xna.Framework;
+using xTile.Dimensions;
 
 
 /// <summary>Applies Prefix Harmony patches to <see cref="Farmer.addItemToInventoryBool"/>.</summary>
@@ -48,7 +50,9 @@ internal class addItemToInventoryBoolPatch : BasePatcher
 
 
         string itemID = item.GetItemTypeId() + item.ItemId;
-        Console.WriteLine("ItemID: " + itemID);
+        int stackSize = item.Stack;
+        int quality = item.Quality;
+        Console.WriteLine("ItemID: " + itemID + " ItemStack: " + stackSize + " Quality: " + quality);
         var filteredItem = Instance.Config.ObjectToFilter.FirstOrDefault(f =>
             f.ItemId.Contains(itemID) && f.ShouldFilter);
 
@@ -65,14 +69,14 @@ internal class addItemToInventoryBoolPatch : BasePatcher
                 int randomNumber = Game1.random.Next(Instance.Config.distanceFilterItemMovesAwayFromPlayer, Instance.Config.distanceFilterItemMovesAwayFromPlayer + 2);
 
                 // Calculate a position a bit away from the player
-                int tileX = (int)player.Tile.X + randomNumber; // random tiles to the right
-                int tileY = (int)player.Tile.Y; // Same Y level
 
-                // Spawn the object at the specified location
+                Vector2 vector2 = new Vector2((int)((player.Tile.X + randomNumber )* 64), (int)player.Tile.Y*64);
                 
                 if (!Instance.Config.RemoveFilteredItemFromGame)
                 {
-                    Game1.createObjectDebris(itemID, tileX, tileY, player.UniqueMultiplayerID);
+                   
+                    Game1.createItemDebris(item, vector2, Game1.random.Next(4));
+                   
                 }
                 
 
