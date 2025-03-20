@@ -70,7 +70,11 @@ internal class addItemToInventoryBoolPatch : BasePatcher
 
                 // Spawn the object at the specified location
                 
-                Game1.createObjectDebris(itemID, tileX, tileY, player.UniqueMultiplayerID);
+                if (!Instance.Config.RemoveFilteredItemFromGame)
+                {
+                    Game1.createObjectDebris(itemID, tileX, tileY, player.UniqueMultiplayerID);
+                }
+                
 
                 return false;
             }

@@ -21,6 +21,7 @@ namespace LootFilter
         public Buttons GamepadToggleFilterThisItem { get; set; } = Buttons.RightStick;
         public Buttons GamepadTurnOffLootFiltering { get; set; } = Buttons.LeftStick;
         public int distanceFilterItemMovesAwayFromPlayer { get; set; } = 8;
+        public bool RemoveFilteredItemFromGame { get; set; } = false;
         public String note002 { get; set; } = "Set ShouldFilter field to True to filter Items. After filter is appied a restart is required.";
         public List<FilteredItem> ObjectToFilter { get; set; } = new List<FilteredItem>
         {
@@ -74,16 +75,7 @@ namespace LootFilter
                 return;
 
 
-            /*       
-      public Keys KeyboardToggleFilterThisItem { get; set; } = Keys.X;
-        public Keys KeyboardTurnOffLootFiltering { get; set; } = Keys.Z;
-        public Buttons GamepadToggleFilterThisItem { get; set; } = Buttons.RightStick;
-        public Buttons GamepadTurnOffLootFiltering { get; set; } = Buttons.LeftStick;
-              * 
-             * 
-             * 
-             * 
-             */
+
             // register mod
             configMenu.Register(
                 mod: this.ModManifest,
@@ -139,7 +131,14 @@ namespace LootFilter
                 max: 40,
                 interval: 1
 
+            );
 
+            configMenu.AddBoolOption( 
+                mod: ModManifest, 
+                getValue: () => Config.RemoveFilteredItemFromGame, 
+                setValue: value => Config.RemoveFilteredItemFromGame = value, 
+                name: () => "RemoveFilteredItemFromGame",
+                tooltip: () => "Turning this option on will remove item from game, otherwise if it's off item will spawn away from character"
             );
 
 
@@ -225,28 +224,6 @@ namespace LootFilter
         }
 
 
-
-
-        private string GetItemID(Item item)
-        {
-            if (item is StardewValley.Object objItem)
-            {
-                return objItem.ParentSheetIndex.ToString();
-            }
-            else if (item is StardewValley.Tools.MeleeWeapon weapon)
-            {
-                return weapon.InitialParentTileIndex.ToString(); // Weapons use InitialParentTileIndex
-            }
-            else if (item is StardewValley.Objects.Clothing clothing)
-            {
-                return clothing.clothesType.ToString() + "_" + clothing.ParentSheetIndex.ToString(); // Clothing items
-            }
-            else if (item is StardewValley.Tool tool)
-            {
-                return tool.BaseName; // Tools (e.g., Pickaxe, Hoe) use BaseName
-            }
-            return item.Name; // Fallback for other item types
-        }
     }
 
 
