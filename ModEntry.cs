@@ -31,8 +31,9 @@ namespace LootFilter
         public int distanceFilterItemMovesAwayFromPlayer { get; set; } = 8;
         public bool RemoveFilteredItemFromGame { get; set; } = false;
 
-        
-        
+        public bool DeveloperMode { get; set; } = false;
+
+
         public List<FilteredItem> ObjectToFilter { get; set; } = new List<FilteredItem>
         {
 
@@ -95,7 +96,9 @@ namespace LootFilter
 
             RegisterConfigMenu(); // your method that rebuilds the GMCM layout
             shouldRefreshGMCM = false; // Reset flag
-            //Monitor.Log("GMCM refreshed with updated loot filter list.", LogLevel.Debug);
+
+            if (Config.DeveloperMode)
+                Monitor.Log("GMCM refreshed with updated loot filter list.", LogLevel.Debug);
         }
         
         
@@ -162,6 +165,21 @@ namespace LootFilter
                 interval: 1
 
             );
+            configMenu.AddBoolOption(
+                mod: this.ModManifest,
+                getValue: () => Config.RemoveFilteredItemFromGame,
+                setValue: value => Config.RemoveFilteredItemFromGame = value,
+                name: () => "Remove Filtered Items from Game",
+                tooltip: () => "If true, filtered items will be deleted instead of dropped nearby."
+            );
+
+            configMenu.AddBoolOption(
+                mod: this.ModManifest,
+                getValue: () => Config.DeveloperMode,
+                setValue: value => Config.DeveloperMode = value,
+                name: () => "Enable Developer Mode",
+                tooltip: () => "Turns on extra debug logging that appears in console."
+            );
 
 
 
@@ -170,6 +188,14 @@ namespace LootFilter
                 pageId: "loot_filter_list",
                 text: () => "View/Edit Loot Filtered Items",
                 tooltip: () => "Toggle which items are currently being filtered when picked up."
+            );
+
+            // Link to alphabetized version
+            configMenu.AddPageLink(
+                mod: this.ModManifest,
+                pageId: "loot_filter_list_sorted",
+                text: () => "View/Edit Loot Filtered Items sorted alphabetically",
+                tooltip: () => "Toggle filtered items, listed alphabetically."
             );
 
             configMenu.AddPage(
@@ -193,6 +219,35 @@ namespace LootFilter
                     getValue: () => localItem.ShouldFilter,
                     setValue: value => localItem.ShouldFilter = value,
                     name: () => $"{localItem.Name}:({localItem.ItemId})",
+                    tooltip: () => "Toggle whether this item should be filtered when picked up."
+                );
+            }
+
+
+
+
+
+
+            configMenu.AddPage(
+                mod: this.ModManifest,
+                pageId: "loot_filter_list_sorted",
+                pageTitle: () => "List Loot Filter Items Alphabetically"
+            );
+
+            configMenu.SetTitleScreenOnlyForNextOptions(this.ModManifest, false);
+            configMenu.AddSectionTitle(this.ModManifest, () => "List Loot Filter Items Alphabetically");
+            configMenu.AddParagraph(this.ModManifest, () => "Items below are sorted alphabetically. Toggle to include or exclude them from auto-pickup.");
+
+
+            foreach (var filteredItem in Config.ObjectToFilter.OrderBy(f => f.Name, StringComparer.OrdinalIgnoreCase))
+            {
+                var localItem = filteredItem;
+
+                configMenu.AddBoolOption(
+                    mod: this.ModManifest,
+                    getValue: () => localItem.ShouldFilter,
+                    setValue: value => localItem.ShouldFilter = value,
+                    name: () => $"{localItem.Name}: ({localItem.ItemId})",
                     tooltip: () => "Toggle whether this item should be filtered when picked up."
                 );
             }
