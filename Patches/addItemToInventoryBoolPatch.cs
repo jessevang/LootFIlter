@@ -24,6 +24,11 @@ namespace LootFilter.Patches
             if (!mod.LootFilterOn)
                 return true;
 
+            if (Game1.activeClickableMenu != null) //Added to prevent loot filter from applying when a menu is open to fix a bug that applied filter during stash transfer
+                return true;
+
+
+
             string itemID = item.GetItemTypeId() + item.ItemId;
             int stackSize = item.Stack;
             int quality = item.Quality;
