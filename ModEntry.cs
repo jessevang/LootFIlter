@@ -49,6 +49,9 @@ namespace LootFilter
 
     public class ModEntry : Mod
     {
+
+        private IGenericModConfigMenuApi? configMenu;  //GMCM doesn't refresh listings dynamically and so this needs to be manually updated by refreshing GMCM list by registering and unregistering this
+
         public static IMonitor ModMonitor;
         public bool FilterMenuOpen { set; get; } = false;
         public static ModEntry Instance { get; private set; }
@@ -83,7 +86,17 @@ namespace LootFilter
             if (configMenu is null)
                 return;
 
+            RegisterConfigMenu();
 
+        }
+
+        private void RegisterConfigMenu()
+        {
+            var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
+            if (configMenu == null)
+                return;
+
+            configMenu.Unregister(this.ModManifest); // Removes my GMCM and reloads it so that updated loot filter list is updated in GMCM
 
             // register mod
             configMenu.Register(
@@ -100,7 +113,7 @@ namespace LootFilter
 
             configMenu.AddKeybindList(
                 mod: ModManifest,
-                name: () => "Hotkey To add/remove from loot filter list",
+                name: () => "Add/Remove Held Item to filter list",
                 tooltip: () => "When menu is open and the player clicks on a item to hold the item then press this hotkey, the item is added to loot filter, or if item is already in the loot filter the item would instead be removed from the loot filter",
                 getValue: () => Config.KeyToAddOrRemoveFromLootFilter,
                 setValue: value => Config.KeyToAddOrRemoveFromLootFilter = value
@@ -108,8 +121,8 @@ namespace LootFilter
 
             configMenu.AddKeybindList(
                 mod: ModManifest,
-                name: () => "Hotkey to Toggle Loot Filter On and Off",
-                tooltip: () => "Pressing this hotkey will turn the loot filter on or off",
+                name: () => "Toggle Loot Filter On/Off",
+                tooltip: () => "Pressing this hotkey will turn the loot filter on or off. Great when you accidently added an item to loot filter and can't pick up the item. Use this to turn off the loot filter then pick up the item",
                 getValue: () => Config.KeyToTurnOffOnLootFilter,
                 setValue: value => Config.KeyToTurnOffOnLootFilter = value
             );
@@ -125,6 +138,40 @@ namespace LootFilter
                 interval: 1
 
             );
+
+
+
+            configMenu.AddPageLink(
+                mod: this.ModManifest,
+                pageId: "loot_filter_list",
+                text: () => "View/Edit Loot Filtered Items",
+                tooltip: () => "Toggle which items are currently being filtered when picked up."
+            );
+
+            configMenu.AddPage(
+                mod: this.ModManifest,
+                pageId: "loot_filter_list",
+                pageTitle: () => "See Current Loot Filtered List"
+            );
+
+
+            configMenu.SetTitleScreenOnlyForNextOptions(this.ModManifest, false);
+            configMenu.AddSectionTitle(this.ModManifest, () => "Filtered Items");
+            configMenu.AddParagraph(this.ModManifest, () => "Toggle items below to include or exclude them from auto-pickup.");
+
+
+            foreach (var filteredItem in Config.ObjectToFilter)
+            {
+                var localItem = filteredItem;
+
+                configMenu.AddBoolOption(
+                    mod: this.ModManifest,
+                    getValue: () => localItem.ShouldFilter,
+                    setValue: value => localItem.ShouldFilter = value,
+                    name: () => $"{localItem.Name}:({localItem.ItemId})",
+                    tooltip: () => "Toggle whether this item should be filtered when picked up."
+                );
+            }
 
 
 
@@ -192,10 +239,16 @@ namespace LootFilter
                             };
                             Config.ObjectToFilter.Add(fi);
                             Game1.addHUDMessage(new HUDMessage($"New Item {itemHeld.Name} added and marked for filtering", 4));
+                            
                         }
 
                         // Save the updated configuration.
                         Helper.WriteConfig(Config);
+
+                        if (configMenu != null)
+                        {
+                            RegisterConfigMenu(); //reregisted menu to display new object added to loot filter or item filter is updated between true and false.
+                        }
                     }
                     else
                     {
