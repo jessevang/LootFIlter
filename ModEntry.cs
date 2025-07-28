@@ -17,7 +17,7 @@ namespace LootFilter
         
         public KeybindList KeyToAddOrRemoveFromLootFilter { get; set; } = new(
             new Keybind(SButton.X),
-            new Keybind(SButton.LeftTrigger, SButton.RightTrigger)
+            new Keybind(SButton.LeftTrigger)
         );
         
         
@@ -59,6 +59,8 @@ namespace LootFilter
         public bool LootFilterOn { get; set; } = true;
         //public IGenericModConfigMenuApi configMenu;
         private Harmony _harmony;
+        private bool shouldRefreshGMCM = false;
+
         public override void Entry(IModHelper helper)
         {
 
@@ -74,9 +76,29 @@ namespace LootFilter
 
             helper.Events.Input.ButtonPressed += Input_ButtonPressed;
             helper.Events.GameLoop.GameLaunched += GameLoop_GameLaunched;
-
+            helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
 
         }
+
+        
+        private void OnUpdateTicked(object sender, StardewModdingAPI.Events.UpdateTickedEventArgs e)
+        {
+            if (!Context.IsWorldReady)
+                return;
+
+            if (Game1.activeClickableMenu == null)
+                return; 
+
+            if (!shouldRefreshGMCM)
+                return;
+
+
+            RegisterConfigMenu(); // your method that rebuilds the GMCM layout
+            shouldRefreshGMCM = false; // Reset flag
+            //Monitor.Log("GMCM refreshed with updated loot filter list.", LogLevel.Debug);
+        }
+        
+        
 
         private void GameLoop_GameLaunched(object? sender, GameLaunchedEventArgs e)
         {
@@ -96,7 +118,8 @@ namespace LootFilter
             if (configMenu == null)
                 return;
 
-            configMenu.Unregister(this.ModManifest); // Removes my GMCM and reloads it so that updated loot filter list is updated in GMCM
+            if (shouldRefreshGMCM)
+                configMenu.Unregister(this.ModManifest); // Removes my GMCM and reloads it so that updated loot filter list is updated in GMCM
 
             // register mod
             configMenu.Register(
@@ -104,6 +127,7 @@ namespace LootFilter
                 reset: () => this.Config = new ModConfig(),
                 save: () => this.Helper.WriteConfig(this.Config)
             );
+            
 
             configMenu.AddParagraph(
                 ModManifest,
@@ -208,7 +232,7 @@ namespace LootFilter
                         // Use the held item's ParentSheetIndex as a unique identifier.
                         string itemID = itemHeld.GetItemTypeId() + itemHeld.ItemId;
 
-                        //Console.WriteLine("itemID: " + itemID );
+              
 
 
                         // string itemID = itemHeld.ParentSheetIndex.ToString();
@@ -245,10 +269,10 @@ namespace LootFilter
                         // Save the updated configuration.
                         Helper.WriteConfig(Config);
 
-                        if (configMenu != null)
-                        {
-                            RegisterConfigMenu(); //reregisted menu to display new object added to loot filter or item filter is updated between true and false.
-                        }
+                        
+                        shouldRefreshGMCM = true;
+                            
+                        
                     }
                     else
                     {
