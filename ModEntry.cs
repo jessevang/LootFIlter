@@ -140,8 +140,8 @@ namespace LootFilter
 
             configMenu.AddKeybindList(
                 mod: ModManifest,
-                name: () => "Add/Remove Held Item to filter list",
-                tooltip: () => "When menu is open and the player clicks on a item to hold the item then press this hotkey, the item is added to loot filter, or if item is already in the loot filter the item would instead be removed from the loot filter",
+                name: () => "Add/Remove Item to filter list",
+                tooltip: () => "When inventory menu is open and the player clicks on a item to hold the item then press this hotkey, the item is added to loot filter, or if item is already in the loot filter the item would instead be removed from the loot filter",
                 getValue: () => Config.KeyToAddOrRemoveFromLootFilter,
                 setValue: value => Config.KeyToAddOrRemoveFromLootFilter = value
             );
@@ -161,7 +161,7 @@ namespace LootFilter
                 name: () => "#Tile Filtered distance",
                 tooltip: () => "Number of Tile distance (default 8) that the Filter Item Moves Away From Player",
                 min: 5,
-                max: 40,
+                max: 80,
                 interval: 1
 
             );
