@@ -2,13 +2,11 @@
 using HarmonyLib;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Spacechase.Shared.Patching;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
-using StardewValley.Objects;
+
 
 
 namespace LootFilter
@@ -16,13 +14,25 @@ namespace LootFilter
 
     public class ModConfig
     {
-        public Keys KeyboardToggleFilterThisItem { get; set; } = Keys.X;
-        public Keys KeyboardTurnOffLootFiltering { get; set; } = Keys.Z;
-        public Buttons GamepadToggleFilterThisItem { get; set; } = Buttons.RightStick;
-        public Buttons GamepadTurnOffLootFiltering { get; set; } = Buttons.LeftStick;
+        
+        public KeybindList KeyToAddOrRemoveFromLootFilter { get; set; } = new(
+            new Keybind(SButton.X),
+            new Keybind(SButton.LeftTrigger, SButton.RightTrigger)
+        );
+        
+        
+        public KeybindList KeyToTurnOffOnLootFilter { get; set; } = new(
+            new Keybind(SButton.Z),
+            new Keybind(SButton.LeftStick, SButton.LeftTrigger)
+        );
+
+
+
         public int distanceFilterItemMovesAwayFromPlayer { get; set; } = 8;
         public bool RemoveFilteredItemFromGame { get; set; } = false;
-        public String note002 { get; set; } = "Set ShouldFilter field to True to filter Items. After filter is appied a restart is required.";
+
+        
+        
         public List<FilteredItem> ObjectToFilter { get; set; } = new List<FilteredItem>
         {
 
@@ -37,13 +47,13 @@ namespace LootFilter
         public string Name { get; set; }
     }
 
-    internal sealed class ModEntry : Mod
+    public class ModEntry : Mod
     {
         public static IMonitor ModMonitor;
         public bool FilterMenuOpen { set; get; } = false;
         public static ModEntry Instance { get; private set; }
         public ModConfig Config { get; private set; }
-        public bool LootFilterOn = true;
+        public bool LootFilterOn { get; set; } = true;
         //public IGenericModConfigMenuApi configMenu;
         private Harmony _harmony;
         public override void Entry(IModHelper helper)
@@ -55,9 +65,8 @@ namespace LootFilter
 
             ModMonitor = Monitor;
 
-            HarmonyPatcher.Apply(this,
-             new addItemToInventoryBoolPatch(Config, Instance)
-             );
+            var harmony = new Harmony(this.ModManifest.UniqueID);
+            harmony.PatchAll();
 
 
             helper.Events.Input.ButtonPressed += Input_ButtonPressed;
@@ -85,40 +94,24 @@ namespace LootFilter
 
             configMenu.AddParagraph(
                 ModManifest,
-                text: () => "To Filter an item, Left Click the item in menu, and press the Filter item hotkey (default X) to Add to the filter list. You can repeat same step to unfilter items. If you accidently filter item and can't pick up item  press the hotkey (default Z) to turn off loot filter"
+                text: () => "To add/remove item to loot Filter, Left Click the item in menu, and press the Filter item hotkey to Add to the filter list. You can repeat same step to unfilter items. If you accidently filter item and can't pick up item  press the hotkey (default Z) to turn off loot filter, then follow the same steps here to remove a filter item to "
 
             );
 
-            configMenu.AddKeybind(
-                ModManifest,
-                name: () => "Key: Filter Item",
-                tooltip: () => "Left Click item in Menu, Press this key to filter/unfilter Item",
-                getValue: () => Config.KeyboardToggleFilterThisItem.ToSButton(),
-                setValue: value => Config.KeyboardToggleFilterThisItem = (Keys)value
+            configMenu.AddKeybindList(
+                mod: ModManifest,
+                name: () => "Hotkey To add/remove from loot filter list",
+                tooltip: () => "When menu is open and the player clicks on a item to hold the item then press this hotkey, the item is added to loot filter, or if item is already in the loot filter the item would instead be removed from the loot filter",
+                getValue: () => Config.KeyToAddOrRemoveFromLootFilter,
+                setValue: value => Config.KeyToAddOrRemoveFromLootFilter = value
             );
 
-            configMenu.AddKeybind(
-                ModManifest,
-                name: () => "Key: Loot Filter On/Off",
-                tooltip: () => "Press this key to turn on/off all loot filtering",
-                getValue: () => Config.KeyboardTurnOffLootFiltering.ToSButton(),
-                setValue: value => Config.KeyboardTurnOffLootFiltering = (Keys)value
-            );
-
-            configMenu.AddKeybind(
-                ModManifest,
-                name: () => "Pad: Filter Item",
-                tooltip: () => "Left Click item in Menu, Press this gamepad button to filter/unfilter Item",
-                getValue: () => Config.GamepadToggleFilterThisItem.ToSButton(),
-                setValue: value => Config.GamepadToggleFilterThisItem = (Buttons)value
-            );
-
-            configMenu.AddKeybind(
-                ModManifest,
-                name: () => "Pad: Loot Filter On/Off",
-                tooltip: () => "Press this gamepad button to turn on/off all loot filtering",
-                getValue: () => Config.GamepadTurnOffLootFiltering.ToSButton(),
-                setValue: value => Config.GamepadTurnOffLootFiltering = (Buttons)value
+            configMenu.AddKeybindList(
+                mod: ModManifest,
+                name: () => "Hotkey to Toggle Loot Filter On and Off",
+                tooltip: () => "Pressing this hotkey will turn the loot filter on or off",
+                getValue: () => Config.KeyToTurnOffOnLootFilter,
+                setValue: value => Config.KeyToTurnOffOnLootFilter = value
             );
 
             configMenu.AddNumberOption(
@@ -133,13 +126,6 @@ namespace LootFilter
 
             );
 
-            configMenu.AddBoolOption( 
-                mod: ModManifest, 
-                getValue: () => Config.RemoveFilteredItemFromGame, 
-                setValue: value => Config.RemoveFilteredItemFromGame = value, 
-                name: () => "RemoveFilteredItemFromGame",
-                tooltip: () => "Turning this option on will remove item from game, otherwise if it's off item will spawn away from character"
-            );
 
 
 
@@ -148,8 +134,7 @@ namespace LootFilter
         private void Input_ButtonPressed(object? sender, ButtonPressedEventArgs e)
         {
             // Toggle global loot filtering if the corresponding key is pressed.
-            if (e.Button == Config.KeyboardTurnOffLootFiltering.ToSButton() ||
-                e.Button == Config.GamepadTurnOffLootFiltering.ToSButton())
+            if (Config.KeyToTurnOffOnLootFilter.JustPressed())
             {
                 LootFilterOn = !LootFilterOn;
                 string message = LootFilterOn ? "Loot Filter is turned on" : "Loot Filter is turned off";
@@ -159,7 +144,7 @@ namespace LootFilter
                 return;
             }
 
-            if (e.Button == Config.KeyboardToggleFilterThisItem.ToSButton() || e.Button == Config.GamepadToggleFilterThisItem.ToSButton())
+            if (Config.KeyToAddOrRemoveFromLootFilter.JustPressed())
             {
                 if (Game1.activeClickableMenu != null)
                 {
@@ -227,7 +212,7 @@ namespace LootFilter
     }
 
 
-    /// <summary>The API which lets other mods add a config UI through Generic Mod Config Menu.</summary>
+    
     public interface IGenericModConfigMenuApi
     {
         /*********
