@@ -183,12 +183,7 @@ namespace LootFilter
 
 
 
-            configMenu.AddPageLink(
-                mod: this.ModManifest,
-                pageId: "loot_filter_list",
-                text: () => "View/Edit Loot Filtered Items",
-                tooltip: () => "Toggle which items are currently being filtered when picked up."
-            );
+
 
             // Link to alphabetized version
             configMenu.AddPageLink(
@@ -197,33 +192,6 @@ namespace LootFilter
                 text: () => "View/Edit Loot Filtered Items sorted alphabetically",
                 tooltip: () => "Toggle filtered items, listed alphabetically."
             );
-
-            configMenu.AddPage(
-                mod: this.ModManifest,
-                pageId: "loot_filter_list",
-                pageTitle: () => "See Current Loot Filtered List"
-            );
-
-
-            configMenu.SetTitleScreenOnlyForNextOptions(this.ModManifest, false);
-            configMenu.AddSectionTitle(this.ModManifest, () => "Filtered Items");
-            configMenu.AddParagraph(this.ModManifest, () => "Toggle items below to include or exclude them from auto-pickup.");
-
-
-            foreach (var filteredItem in Config.ObjectToFilter)
-            {
-                var localItem = filteredItem;
-
-                configMenu.AddBoolOption(
-                    mod: this.ModManifest,
-                    getValue: () => localItem.ShouldFilter,
-                    setValue: value => localItem.ShouldFilter = value,
-                    name: () => $"{localItem.Name}:({localItem.ItemId})",
-                    tooltip: () => "Toggle whether this item should be filtered when picked up."
-                );
-            }
-
-
 
 
 
@@ -251,6 +219,13 @@ namespace LootFilter
                     tooltip: () => "Toggle whether this item should be filtered when picked up."
                 );
             }
+
+
+
+         
+
+
+
 
 
 
