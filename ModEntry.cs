@@ -260,9 +260,12 @@ namespace LootFilter
                     {
 
                         // Use the held item's ParentSheetIndex as a unique identifier.
-                        string itemID = itemHeld.GetItemTypeId() + itemHeld.ItemId;
+                        //string itemID = itemHeld.GetItemTypeId() + itemHeld.ItemId;
 
-              
+                        string itemID = itemHeld.QualifiedItemId;
+
+
+
 
 
                         // string itemID = itemHeld.ParentSheetIndex.ToString();
@@ -299,10 +302,12 @@ namespace LootFilter
                         // Save the updated configuration.
                         Helper.WriteConfig(Config);
 
-                        
+
                         shouldRefreshGMCM = true;
-                            
-                        
+
+
+
+
                     }
                     else
                     {

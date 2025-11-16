@@ -41,7 +41,8 @@ namespace LootFilter.Patches
                 mod.Monitor.Log($"\n", LogLevel.Debug); //add new line to see seperations
             }
 
-            string itemID = item.GetItemTypeId() + item.ItemId;
+            //string itemID = item.GetItemTypeId() + item.ItemId;
+            string itemID = item.QualifiedItemId;
             int stackSize = item.Stack;
             int quality = item.Quality;
 
@@ -50,10 +51,11 @@ namespace LootFilter.Patches
                 mod.Monitor.Log($"[DevMode-addItemToInventoryBoolPatch] Trying to add item: {item.Name} (ID: {itemID}) Stack: {stackSize}, Quality: {quality}", LogLevel.Debug);
             }
 
-           
 
-            var filteredItem = mod.Config.ObjectToFilter.FirstOrDefault(f =>
-                f.ItemId.Contains(itemID) && f.ShouldFilter);
+
+            var filteredItem = mod.Config.ObjectToFilter
+                .FirstOrDefault(f => f.ItemId == itemID && f.ShouldFilter);
+
 
             if (mod.Config.DeveloperMode)
             {
