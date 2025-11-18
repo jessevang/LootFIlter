@@ -1,0 +1,146 @@
+﻿{
+  "main.description": "戦利品フィルターにアイテムを追加・削除するには、インベントリでアイテムを左クリックして手に持ち、その状態でフィルター用のホットキーを押します。同じ操作でフィルター解除もできます。誤ってアイテムをフィルターしてしまい拾えなくなった場合は、ホットキー（デフォルトは Z）でフィルターを一時的に無効化してから、同じ手順でフィルターを解除してください。",
+
+  "key.addremove.name": "フィルターにアイテムを追加／削除",
+  "key.addremove.tooltip": "インベントリを開き、アイテムをクリックして手に持った状態でこのホットキーを押すと、アイテムがフィルターに追加または削除されます。",
+
+  "key.toggle.name": "フィルターの ON/OFF 切り替え",
+  "key.toggle.tooltip": "このホットキーでフィルターの有効／無効を切り替えます。誤って必要なアイテムをフィルターした際に便利です。",
+
+  "distance.name": "フィルター距離（タイル数）",
+  "distance.tooltip": "フィルターされたアイテムがプレイヤーから離れる距離（タイル数、デフォルト 8）。",
+
+  "removefiltered.name": "フィルターされたアイテムを削除する",
+  "removefiltered.tooltip": "有効にすると、フィルターされたアイテムは周囲に落とされず、そのまま削除されます。",
+
+  "devmode.name": "デベロッパーモードを有効化",
+  "devmode.tooltip": "追加のデバッグログをコンソールに表示します。",
+
+  "page.categoryfilters.name": "カテゴリーフィルター（個別リストを上書き）",
+  "page.categoryfilters.tooltip": "武器・道具・アーティファクトなど、広いカテゴリをまとめてフィルターします。個別設定より先に適用されます。",
+
+  "page.sortedlist.name": "フィルター済みアイテム（五十音順）を確認・編集",
+  "page.sortedlist.tooltip": "フィルターされているアイテムを五十音順で表示し、個別に切り替えることができます。",
+
+  "page.sortedlist.title": "フィルター済みアイテム（五十音順）一覧",
+  "page.sortedlist.section": "フィルター済みアイテム（五十音順）一覧",
+  "page.sortedlist.description": "以下のアイテムは五十音順で並んでいます。ON/OFF を切り替えて自動取得するかどうかを設定できます。",
+
+  "item.entry.name": "{{item}} ({{id}})",
+  "item.entry.tooltip": "このアイテムをフィルターするかどうかを切り替えます。",
+
+  "page.categoryfilters.title": "カテゴリーフィルター",
+
+  "category.section.title": "カテゴリーベースのフィルター",
+  "category.section.tooltip": "アイテムの種類や分類に基づいた、広範囲のフィルター設定です。",
+  "category.section.description": "ここでカテゴリーを有効にすると、そのカテゴリーに属するアイテムはすべてフィルター対象になります（個別設定より優先されます）。",
+
+  "category.main.title": "主要カテゴリー",
+  "category.main.description": "武器・道具・衣服・一般オブジェクトなど、広い分類のアイテムが対象です。",
+
+  "category.weapons": "武器",
+  "category.weapons.tooltip": "近接武器（剣・短剣・こん棒など）をすべてフィルターします。",
+
+  "category.tools": "道具",
+  "category.tools.tooltip": "道具（斧・つるはし・クワ・ジョウロ・釣り竿など）をすべてフィルターします。",
+
+  "category.boots": "ブーツ",
+  "category.boots.tooltip": "ブーツや靴類をフィルターします。",
+
+  "category.hats": "帽子",
+  "category.hats.tooltip": "帽子類をフィルターします。",
+
+  "category.shirts": "シャツ",
+  "category.shirts.tooltip": "シャツ類をフィルターします。",
+
+  "category.pants": "ズボン",
+  "category.pants.tooltip": "ズボン類をフィルターします。",
+
+  "category.rings": "指輪",
+  "category.rings.tooltip": "指輪類をフィルターします。",
+
+  "category.objects": "オブジェクト",
+  "category.objects.tooltip": "通常のオブジェクト（QualifiedItemId が (O) で始まるもの）をフィルターします。",
+
+  "category.artifacts": "アーティファクト",
+  "category.artifacts.tooltip": "すべてのアーティファクトをフィルターします。",
+
+  "subcategory.title": "サブカテゴリー",
+  "subcategory.description": "ゲーム内の詳細カテゴリー（魚・ミルク・モンスタードロップなど）に基づいて細かく分類されます。",
+
+  "subcategory.fish": "魚",
+  "subcategory.fish.tooltip": "魚カテゴリーのアイテムをすべてフィルターします。",
+
+  "subcategory.eggs": "卵",
+  "subcategory.eggs.tooltip": "卵カテゴリーのアイテムをフィルターします。",
+
+  "subcategory.milk": "ミルク",
+  "subcategory.milk.tooltip": "ミルクおよび乳製品をフィルターします。",
+
+  "subcategory.food": "料理",
+  "subcategory.food.tooltip": "調理された食品をフィルターします。",
+
+  "subcategory.crafting": "クラフト素材",
+  "subcategory.crafting.tooltip": "クラフト材料をフィルターします。",
+
+  "subcategory.bigcraftables": "大型クラフト品",
+  "subcategory.bigcraftables.tooltip": "大型クラフトアイテムをフィルターします。",
+
+  "subcategory.minerals": "鉱物",
+  "subcategory.minerals.tooltip": "鉱物カテゴリーのアイテムをすべてフィルターします。",
+
+  "subcategory.meat": "肉",
+  "subcategory.meat.tooltip": "肉類アイテムをフィルターします。",
+
+  "subcategory.metal": "金属資源",
+  "subcategory.metal.tooltip": "金属系アイテムをフィルターします。",
+
+  "subcategory.building": "建築素材",
+  "subcategory.building.tooltip": "建築資材をフィルターします。",
+
+  "subcategory.pierre": "ピエールの店の商品",
+  "subcategory.pierre.tooltip": "ピエールの店で販売されるアイテムをフィルターします。",
+
+  "subcategory.gus": "ガスの店の商品",
+  "subcategory.gus.tooltip": "ガスの酒場で販売されるアイテムをフィルターします。",
+
+  "subcategory.fertilizer": "肥料",
+  "subcategory.fertilizer.tooltip": "すべての肥料をフィルターします。",
+
+  "subcategory.junk": "ゴミ",
+  "subcategory.junk.tooltip": "ゴミ・ジャンク扱いのアイテムをフィルターします。",
+
+  "subcategory.bait": "エサ",
+  "subcategory.bait.tooltip": "すべてのエサをフィルターします。",
+
+  "subcategory.tackle": "釣り道具",
+  "subcategory.tackle.tooltip": "釣り用の道具やアクセサリーをフィルターします。",
+
+  "subcategory.ingredients": "材料",
+  "subcategory.ingredients.tooltip": "材料として分類されるアイテムをフィルターします。",
+
+  "subcategory.artisangoods": "手作り品",
+  "subcategory.artisangoods.tooltip": "手作り品（職人製品）をフィルターします。",
+
+
+  "subcategory.syrups": "シロップ",
+  "subcategory.syrups.tooltip": "すべてのシロップをフィルターします。",
+
+  "subcategory.monsterloot": "モンスタードロップ",
+  "subcategory.monsterloot.tooltip": "モンスターが落とすアイテムをフィルターします。",
+
+  "subcategory.seeds": "種",
+  "subcategory.seeds.tooltip": "すべての種をフィルターします。",
+
+  "subcategory.vegetables": "野菜",
+  "subcategory.vegetables.tooltip": "すべての野菜をフィルターします。",
+
+  "subcategory.fruit": "果物",
+  "subcategory.fruit.tooltip": "すべての果物をフィルターします。",
+
+  "subcategory.flowers": "花",
+  "subcategory.flowers.tooltip": "すべての花をフィルターします。",
+
+  "subcategory.forage": "採取物",
+  "subcategory.forage.tooltip": "自然で採取できるアイテムをフィルターします。"
+}

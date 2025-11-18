@@ -1,0 +1,145 @@
+{
+  "main.description": "Para a�adir o quitar un objeto del filtro de bot�n, haz clic izquierdo en el objeto en tu inventario para sostenerlo y luego presiona la tecla de filtro. Repite el mismo paso para quitar el objeto del filtro. Si filtras un objeto por accidente y no puedes recogerlo, presiona la tecla (por defecto Z) para desactivar temporalmente el filtro de bot�n y luego sigue los mismos pasos para quitarlo del filtro.",
+
+  "key.addremove.name": "A�adir/Quitar objeto de la lista de filtro",
+  "key.addremove.tooltip": "Cuando el inventario est� abierto, selecciona un objeto haci�ndole clic y luego presiona esta tecla. El objeto se a�adir� o se quitar� de la lista del filtro de bot�n.",
+
+  "key.toggle.name": "Activar/Desactivar el filtro de bot�n",
+  "key.toggle.tooltip": "Esta tecla activa o desactiva el filtro de bot�n. �til si filtras accidentalmente un objeto que a�n necesitas recoger.",
+
+  "distance.name": "Distancia filtrada en casillas",
+  "distance.tooltip": "N�mero de casillas (por defecto 8) que los objetos filtrados ser�n alejados del jugador.",
+
+  "removefiltered.name": "Eliminar objetos filtrados del juego",
+  "removefiltered.tooltip": "Si est� activado, los objetos filtrados se eliminan en lugar de soltarse cerca.",
+
+  "devmode.name": "Activar modo desarrollador",
+  "devmode.tooltip": "Activa registros adicionales de depuraci�n en la consola.",
+
+  "page.categoryfilters.name": "Filtros por categor�a (sobrescriben la lista individual)",
+  "page.categoryfilters.tooltip": "Activa categor�as amplias como armas, herramientas, artefactos, etc. Estos filtros se aplican antes de la lista individual del filtro de bot�n.",
+
+  "page.sortedlist.name": "Ver/Editar objetos filtrados (orden alfab�tico)",
+  "page.sortedlist.tooltip": "Ver y cambiar objetos filtrados, ordenados alfab�ticamente.",
+
+  "page.sortedlist.title": "Lista de objetos filtrados (orden alfab�tico)",
+  "page.sortedlist.section": "Lista de objetos filtrados (orden alfab�tico)",
+  "page.sortedlist.description": "Los objetos de abajo est�n ordenados alfab�ticamente. Activa o desactiva cada uno para incluirlo o excluirlo del auto-recolecci�n.",
+
+  "item.entry.name": "{{item}} ({{id}})",
+  "item.entry.tooltip": "Activa o desactiva si este objeto debe ser filtrado.",
+
+  "page.categoryfilters.title": "Filtros por Categor�a",
+
+  "category.section.title": "Filtros por Categor�a",
+  "category.section.tooltip": "Estos filtros aplican reglas m�s amplias seg�n el tipo o categor�a del objeto.",
+  "category.section.description": "Si una categor�a est� activada aqu�, cualquier objeto que coincida ser� filtrado incluso si no est� en la lista individual.",
+
+  "category.main.title": "Categor�as principales",
+  "category.main.description": "Estas se aplican a grupos generales de objetos como armas, herramientas, ropa u objetos gen�ricos.",
+
+  "category.weapons": "Armas",
+  "category.weapons.tooltip": "Filtrar todas las armas cuerpo a cuerpo (espadas, dagas, mazas, etc.).",
+
+  "category.tools": "Herramientas",
+  "category.tools.tooltip": "Filtrar todas las herramientas (hachas, picos, azadas, regaderas, ca�as de pescar, etc.).",
+
+  "category.boots": "Botas",
+  "category.boots.tooltip": "Filtrar todas las botas y calzado.",
+
+  "category.hats": "Sombreros",
+  "category.hats.tooltip": "Filtrar todos los sombreros.",
+
+  "category.shirts": "Camisas",
+  "category.shirts.tooltip": "Filtrar todas las camisas.",
+
+  "category.pants": "Pantalones",
+  "category.pants.tooltip": "Filtrar todos los pantalones.",
+
+  "category.rings": "Anillos",
+  "category.rings.tooltip": "Filtrar todos los anillos.",
+
+  "category.objects": "Objetos",
+  "category.objects.tooltip": "Filtrar todos los objetos normales (QualifiedItemId que empieza por (O)).",
+
+  "category.artifacts": "Artefactos",
+  "category.artifacts.tooltip": "Filtrar todos los artefactos.",
+
+  "subcategory.title": "Subcategor�as",
+  "subcategory.description": "Estas utilizan las categor�as internas del juego (Pescado, Leche, Bot�n de monstruo, etc.).",
+
+  "subcategory.fish": "Pescado",
+  "subcategory.fish.tooltip": "Filtrar todos los pescados.",
+
+  "subcategory.eggs": "Huevos",
+  "subcategory.eggs.tooltip": "Filtrar todos los huevos.",
+
+  "subcategory.milk": "Leche",
+  "subcategory.milk.tooltip": "Filtrar todos los productos l�cteos.",
+
+  "subcategory.food": "Comida (Cocina)",
+  "subcategory.food.tooltip": "Filtrar toda la comida cocinada.",
+
+  "subcategory.crafting": "Materiales de elaboraci�n",
+  "subcategory.crafting.tooltip": "Filtrar todos los materiales de elaboraci�n.",
+
+  "subcategory.bigcraftables": "Artesan�as grandes",
+  "subcategory.bigcraftables.tooltip": "Filtrar todos los objetos grandes elaborables.",
+
+  "subcategory.minerals": "Minerales",
+  "subcategory.minerals.tooltip": "Filtrar todos los minerales.",
+
+  "subcategory.meat": "Carne",
+  "subcategory.meat.tooltip": "Filtrar todos los productos de carne.",
+
+  "subcategory.metal": "Recursos met�licos",
+  "subcategory.metal.tooltip": "Filtrar todos los recursos met�licos.",
+
+  "subcategory.building": "Materiales de construcci�n",
+  "subcategory.building.tooltip": "Filtrar todos los materiales de construcci�n.",
+
+  "subcategory.pierre": "Art�culos de Pierre",
+  "subcategory.pierre.tooltip": "Filtrar art�culos vendidos en la tienda de Pierre.",
+
+  "subcategory.gus": "Art�culos de Gus",
+  "subcategory.gus.tooltip": "Filtrar art�culos vendidos en el bar de Gus.",
+
+  "subcategory.fertilizer": "Fertilizante",
+  "subcategory.fertilizer.tooltip": "Filtrar todos los fertilizantes.",
+
+  "subcategory.junk": "Basura",
+  "subcategory.junk.tooltip": "Filtrar todos los objetos considerados basura o desecho.",
+
+  "subcategory.bait": "Cebo",
+  "subcategory.bait.tooltip": "Filtrar todo el cebo.",
+
+  "subcategory.tackle": "Equipo de pesca",
+  "subcategory.tackle.tooltip": "Filtrar todos los accesorios de pesca.",
+
+  "subcategory.ingredients": "Ingredientes",
+  "subcategory.ingredients.tooltip": "Filtrar todos los ingredientes.",
+
+  "subcategory.artisangoods": "Productos artesanales",
+  "subcategory.artisangoods.tooltip": "Filtrar todos los productos artesanales.",
+
+  "subcategory.syrups": "Jarabes",
+  "subcategory.syrups.tooltip": "Filtrar todos los jarabes.",
+
+  "subcategory.monsterloot": "Bot�n de monstruo",
+  "subcategory.monsterloot.tooltip": "Filtrar todo el bot�n de monstruo.",
+
+  "subcategory.seeds": "Semillas",
+  "subcategory.seeds.tooltip": "Filtrar todas las semillas.",
+
+  "subcategory.vegetables": "Verduras",
+  "subcategory.vegetables.tooltip": "Filtrar todas las verduras.",
+
+  "subcategory.fruit": "Fruta",
+  "subcategory.fruit.tooltip": "Filtrar todas las frutas.",
+
+  "subcategory.flowers": "Flores",
+  "subcategory.flowers.tooltip": "Filtrar todas las flores.",
+
+  "subcategory.forage": "Forraje",
+  "subcategory.forage.tooltip": "Filtrar todos los objetos recolectados."
+}

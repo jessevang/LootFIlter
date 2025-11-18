@@ -1,0 +1,145 @@
+{
+  "main.description": "To add or remove an item from the loot filter, left-click the item in your inventory to hold it, then press the filter hotkey. Repeat the same step to unfilter the item. If you accidentally filter an item and can�t pick it up, press the hotkey (default Z) to temporarily disable the loot filter, then follow these steps to remove the filtered item.",
+
+  "key.addremove.name": "Add/Remove Item to Filter List",
+  "key.addremove.tooltip": "When the inventory menu is open, click an item to hold it, then press this hotkey. The item will be added to or removed from the loot filter list.",
+
+  "key.toggle.name": "Toggle Loot Filter On/Off",
+  "key.toggle.tooltip": "Pressing this hotkey turns the loot filter on or off. Useful when you accidentally filter an item you still want to pick up.",
+
+  "distance.name": "#Tile Filtered Distance",
+  "distance.tooltip": "Number of tiles (default 8) that filtered items will move away from the player.",
+
+  "removefiltered.name": "Remove Filtered Items from Game",
+  "removefiltered.tooltip": "If enabled, filtered items are deleted instead of dropped nearby.",
+
+  "devmode.name": "Enable Developer Mode",
+  "devmode.tooltip": "Shows extra debug logs in the console.",
+
+  "page.categoryfilters.name": "Category-Based Filters (Override Item List)",
+  "page.categoryfilters.tooltip": "Toggle broad categories like weapons, tools, artifacts, etc. These apply before the per-item loot filter list.",
+
+  "page.sortedlist.name": "View/Edit Loot Filtered Items Alphabetically",
+  "page.sortedlist.tooltip": "View and toggle individual filtered items, sorted alphabetically.",
+
+  "page.sortedlist.title": "List Loot Filter Items Alphabetically",
+  "page.sortedlist.section": "List Loot Filter Items Alphabetically",
+  "page.sortedlist.description": "Items below are sorted alphabetically. Toggle to include or exclude them from auto-pickup.",
+
+  "item.entry.name": "{{item}} ({{id}})",
+  "item.entry.tooltip": "Toggle whether this item should be filtered.",
+
+  "page.categoryfilters.title": "Category Filters",
+
+  "category.section.title": "Category-Based Filters",
+  "category.section.tooltip": "These options apply broad filters by item type or category.",
+  "category.section.description": "If a category is enabled here, any matching item will be filtered even if it is not in the item-specific loot filter list.",
+
+  "category.main.title": "Main Categories",
+  "category.main.description": "These apply to broad item types such as weapons, tools, clothing, and object classes.",
+
+  "category.weapons": "Weapons",
+  "category.weapons.tooltip": "Filter all melee weapons (swords, daggers, clubs, etc.).",
+
+  "category.tools": "Tools",
+  "category.tools.tooltip": "Filter all tools (axes, pickaxes, hoes, watering cans, fishing rods, etc.).",
+
+  "category.boots": "Boots",
+  "category.boots.tooltip": "Filter all boots and footwear.",
+
+  "category.hats": "Hats",
+  "category.hats.tooltip": "Filter all hats.",
+
+  "category.shirts": "Shirts",
+  "category.shirts.tooltip": "Filter all shirts.",
+
+  "category.pants": "Pants",
+  "category.pants.tooltip": "Filter all pants.",
+
+  "category.rings": "Rings",
+  "category.rings.tooltip": "Filter all rings.",
+
+  "category.objects": "Objects",
+  "category.objects.tooltip": "Filter all object items (QualifiedItemId starting with (O)).",
+
+  "category.artifacts": "Artifacts",
+  "category.artifacts.tooltip": "Filter all artifacts.",
+
+  "subcategory.title": "Subcategories",
+  "subcategory.description": "These categories use the game's object-type classifications (Fish, Milk, Monster Loot, etc.) for finer filtering.",
+
+  "subcategory.fish": "Fish",
+  "subcategory.fish.tooltip": "Filter all fish.",
+
+  "subcategory.eggs": "Eggs",
+  "subcategory.eggs.tooltip": "Filter all eggs.",
+
+  "subcategory.milk": "Milk",
+  "subcategory.milk.tooltip": "Filter all milk products.",
+
+  "subcategory.food": "Food (Cooking)",
+  "subcategory.food.tooltip": "Filter all cooked food items.",
+
+  "subcategory.crafting": "Crafting Materials",
+  "subcategory.crafting.tooltip": "Filter all crafting materials.",
+
+  "subcategory.bigcraftables": "Big Craftables",
+  "subcategory.bigcraftables.tooltip": "Filter all big craftable items.",
+
+  "subcategory.minerals": "Minerals",
+  "subcategory.minerals.tooltip": "Filter all minerals.",
+
+  "subcategory.meat": "Meat",
+  "subcategory.meat.tooltip": "Filter all meat items.",
+
+  "subcategory.metal": "Metal Resources",
+  "subcategory.metal.tooltip": "Filter all metal-resource items.",
+
+  "subcategory.building": "Building Resources",
+  "subcategory.building.tooltip": "Filter all building-resource items.",
+
+  "subcategory.pierre": "Pierre Shop Items",
+  "subcategory.pierre.tooltip": "Filter items sold at Pierre�s.",
+
+  "subcategory.gus": "Gus Shop Items",
+  "subcategory.gus.tooltip": "Filter items sold at Gus�s.",
+
+  "subcategory.fertilizer": "Fertilizer",
+  "subcategory.fertilizer.tooltip": "Filter all fertilizers.",
+
+  "subcategory.junk": "Junk / Trash",
+  "subcategory.junk.tooltip": "Filter all junk or trash items.",
+
+  "subcategory.bait": "Bait",
+  "subcategory.bait.tooltip": "Filter all bait.",
+
+  "subcategory.tackle": "Tackle",
+  "subcategory.tackle.tooltip": "Filter all tackle.",
+
+  "subcategory.ingredients": "Ingredients",
+  "subcategory.ingredients.tooltip": "Filter all ingredient items.",
+
+  "subcategory.artisangoods": "Artisan Goods",
+  "subcategory.artisangoods.tooltip": "Filter all artisan goods.",
+
+  "subcategory.syrups": "Syrups",
+  "subcategory.syrups.tooltip": "Filter all syrups.",
+
+  "subcategory.monsterloot": "Monster Loot",
+  "subcategory.monsterloot.tooltip": "Filter all monster loot items.",
+
+  "subcategory.seeds": "Seeds",
+  "subcategory.seeds.tooltip": "Filter all seeds.",
+
+  "subcategory.vegetables": "Vegetables",
+  "subcategory.vegetables.tooltip": "Filter all vegetables.",
+
+  "subcategory.fruit": "Fruit",
+  "subcategory.fruit.tooltip": "Filter all fruits.",
+
+  "subcategory.flowers": "Flowers",
+  "subcategory.flowers.tooltip": "Filter all flowers.",
+
+  "subcategory.forage": "Forage",
+  "subcategory.forage.tooltip": "Filter all forage items."
+}

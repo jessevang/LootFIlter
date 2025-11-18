@@ -1,0 +1,145 @@
+﻿{
+  "main.description": "Чтобы добавить или убрать предмет из фильтра добычи, нажмите на него в инвентаре, чтобы взять его в руки, а затем нажмите горячую клавишу фильтра. Повторите действие, чтобы убрать предмет из списка. Если вы случайно отфильтровали предмет и больше не можете его поднять, нажмите горячую клавишу (по умолчанию Z), чтобы временно отключить фильтр, а затем удалите предмет из фильтра обычным способом.",
+
+  "key.addremove.name": "Добавить/Удалить предмет из фильтра",
+  "key.addremove.tooltip": "Когда инвентарь открыт, нажмите на предмет, чтобы взять его в руки, затем нажмите эту горячую клавишу. Предмет будет добавлен или удалён из фильтра.",
+
+  "key.toggle.name": "Включить/Выключить фильтр добычи",
+  "key.toggle.tooltip": "Эта горячая клавиша включает или выключает фильтр добычи. Полезно, если вы случайно отфильтровали нужный предмет.",
+
+  "distance.name": "Дистанция фильтрации (в клетках)",
+  "distance.tooltip": "Количество клеток (по умолчанию 8), на которое отфильтрованные предметы будут отталкиваться от игрока.",
+
+  "removefiltered.name": "Удалять отфильтрованные предметы",
+  "removefiltered.tooltip": "Если включено, отфильтрованные предметы будут удалены, а не выброшены рядом.",
+
+  "devmode.name": "Включить режим разработчика",
+  "devmode.tooltip": "Включает дополнительные отладочные сообщения в консоли.",
+
+  "page.categoryfilters.name": "Фильтры по категориям (заменяют индивидуальный список)",
+  "page.categoryfilters.tooltip": "Включите общее фильтрование по типам — оружие, инструменты, артефакты и т.д. Эти фильтры применяются раньше индивидуальных настроек.",
+
+  "page.sortedlist.name": "Просмотр/редактирование отфильтрованных предметов (по алфавиту)",
+  "page.sortedlist.tooltip": "Показать и изменить состояние отдельных предметов, отсортированных по алфавиту.",
+
+  "page.sortedlist.title": "Список отфильтрованных предметов (по алфавиту)",
+  "page.sortedlist.section": "Список отфильтрованных предметов (по алфавиту)",
+  "page.sortedlist.description": "Ниже перечислены предметы, отсортированные по алфавиту. Вы можете включить или отключить их автоматический сбор.",
+
+  "item.entry.name": "{{item}} ({{id}})",
+  "item.entry.tooltip": "Включить или отключить фильтрацию этого предмета.",
+
+  "page.categoryfilters.title": "Фильтры по категориям",
+
+  "category.section.title": "Категорийные фильтры",
+  "category.section.tooltip": "Эти параметры применяют широкие фильтры в зависимости от типа или класса предмета.",
+  "category.section.description": "Если категория включена, все предметы этой категории будут фильтроваться, даже если они не указаны в индивидуальном списке.",
+
+  "category.main.title": "Основные категории",
+  "category.main.description": "Применяются к широким типам предметов: оружие, инструменты, одежда и обычные объекты.",
+
+  "category.weapons": "Оружие",
+  "category.weapons.tooltip": "Фильтровать всё ближнее оружие (мечи, кинжалы, дубины и т.п.).",
+
+  "category.tools": "Инструменты",
+  "category.tools.tooltip": "Фильтровать все инструменты (топоры, кирки, мотыги, лейки, удочки и т.п.).",
+
+  "category.boots": "Обувь",
+  "category.boots.tooltip": "Фильтровать всю обувь.",
+
+  "category.hats": "Головные уборы",
+  "category.hats.tooltip": "Фильтровать все головные уборы.",
+
+  "category.shirts": "Рубашки",
+  "category.shirts.tooltip": "Фильтровать все рубашки.",
+
+  "category.pants": "Штаны",
+  "category.pants.tooltip": "Фильтровать все штаны.",
+
+  "category.rings": "Кольца",
+  "category.rings.tooltip": "Фильтровать все кольца.",
+
+  "category.objects": "Объекты",
+  "category.objects.tooltip": "Фильтровать все обычные предметы (QualifiedItemId, начинающиеся с (O)).",
+
+  "category.artifacts": "Артефакты",
+  "category.artifacts.tooltip": "Фильтровать все артефакты.",
+
+  "subcategory.title": "Подкатегории",
+  "subcategory.description": "Используют внутренние категории игры (рыба, молоко, добыча монстров и т.д.).",
+
+  "subcategory.fish": "Рыба",
+  "subcategory.fish.tooltip": "Фильтровать всю рыбу.",
+
+  "subcategory.eggs": "Яйца",
+  "subcategory.eggs.tooltip": "Фильтровать все яйца.",
+
+  "subcategory.milk": "Молоко",
+  "subcategory.milk.tooltip": "Фильтровать молочные продукты.",
+
+  "subcategory.food": "Еда (Кулинария)",
+  "subcategory.food.tooltip": "Фильтровать всю приготовленную пищу.",
+
+  "subcategory.crafting": "Ремесленные материалы",
+  "subcategory.crafting.tooltip": "Фильтровать все материалы для ремесла.",
+
+  "subcategory.bigcraftables": "Крупные ремесленные предметы",
+  "subcategory.bigcraftables.tooltip": "Фильтровать все крупные создаваемые предметы.",
+
+  "subcategory.minerals": "Минералы",
+  "subcategory.minerals.tooltip": "Фильтровать все минералы.",
+
+  "subcategory.meat": "Мясо",
+  "subcategory.meat.tooltip": "Фильтровать все мясные продукты.",
+
+  "subcategory.metal": "Металлические ресурсы",
+  "subcategory.metal.tooltip": "Фильтровать все металлические ресурсы.",
+
+  "subcategory.building": "Строительные материалы",
+  "subcategory.building.tooltip": "Фильтровать все строительные материалы.",
+
+  "subcategory.pierre": "Товары Пьера",
+  "subcategory.pierre.tooltip": "Фильтровать предметы, продающиеся в магазине Пьера.",
+
+  "subcategory.gus": "Товары Гаса",
+  "subcategory.gus.tooltip": "Фильтровать предметы, продающиеся в баре Гаса.",
+
+  "subcategory.fertilizer": "Удобрения",
+  "subcategory.fertilizer.tooltip": "Фильтровать все удобрения.",
+
+  "subcategory.junk": "Мусор",
+  "subcategory.junk.tooltip": "Фильтровать все предметы, относящиеся к мусору.",
+
+  "subcategory.bait": "Приманка",
+  "subcategory.bait.tooltip": "Фильтровать всю приманку.",
+
+  "subcategory.tackle": "Оснастка для рыбалки",
+  "subcategory.tackle.tooltip": "Фильтровать всю рыболовную оснастку.",
+
+  "subcategory.ingredients": "Ингредиенты",
+  "subcategory.ingredients.tooltip": "Фильтровать все ингредиенты.",
+
+  "subcategory.artisangoods": "Ремесленные товары",
+  "subcategory.artisangoods.tooltip": "Фильтровать все товары ремесленного производства.",
+
+  "subcategory.syrups": "Сиропы",
+  "subcategory.syrups.tooltip": "Фильтровать все сиропы.",
+
+  "subcategory.monsterloot": "Добыча монстров",
+  "subcategory.monsterloot.tooltip": "Фильтровать всё, что выпадает из монстров.",
+
+  "subcategory.seeds": "Семена",
+  "subcategory.seeds.tooltip": "Фильтровать все семена.",
+
+  "subcategory.vegetables": "Овощи",
+  "subcategory.vegetables.tooltip": "Фильтровать все овощи.",
+
+  "subcategory.fruit": "Фрукты",
+  "subcategory.fruit.tooltip": "Фильтровать все фрукты.",
+
+  "subcategory.flowers": "Цветы",
+  "subcategory.flowers.tooltip": "Фильтровать все цветы.",
+
+  "subcategory.forage": "Собираемые ресурсы",
+  "subcategory.forage.tooltip": "Фильтровать всё, что можно собрать в природе."
+}

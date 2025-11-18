@@ -1,0 +1,145 @@
+{
+  "main.description": "Um einen Gegenstand zum Beutefilter hinzuzuf�gen oder zu entfernen, klicke ihn im Inventar an, um ihn aufzunehmen, und dr�cke anschlie�end die Filter-Hotkey. Wiederhole diesen Vorgang, um den Gegenstand wieder aus dem Filter zu entfernen. Falls du versehentlich einen Gegenstand gefiltert hast und ihn nicht mehr aufheben kannst, dr�cke die Hotkey (Standard: Z), um den Beutefilter vor�bergehend zu deaktivieren. Danach kannst du den Filtereintrag wie oben beschrieben entfernen.",
+
+  "key.addremove.name": "Gegenstand zur Filterliste hinzuf�gen/entfernen",
+  "key.addremove.tooltip": "Wenn das Inventar ge�ffnet ist, w�hle einen Gegenstand aus, indem du ihn anklickst, und dr�cke anschlie�end diese Hotkey. Der Gegenstand wird zur Beutefilterliste hinzugef�gt oder daraus entfernt.",
+
+  "key.toggle.name": "Beutefilter ein/aus",
+  "key.toggle.tooltip": "Mit dieser Hotkey kannst du den Beutefilter ein- oder ausschalten. N�tzlich, wenn du versehentlich etwas gefiltert hast, das du dennoch aufheben m�chtest.",
+
+  "distance.name": "#Kachel-Abstand des Filters",
+  "distance.tooltip": "Anzahl an Kacheln (Standard 8), die gefilterte Gegenst�nde vom Spieler wegbewegt werden.",
+
+  "removefiltered.name": "Gefilterte Gegenst�nde aus dem Spiel entfernen",
+  "removefiltered.tooltip": "Wenn aktiviert, werden gefilterte Gegenst�nde gel�scht, statt in der N�he abgelegt zu werden.",
+
+  "devmode.name": "Entwicklermodus aktivieren",
+  "devmode.tooltip": "Aktiviert zus�tzliche Debug-Meldungen in der Konsole.",
+
+  "page.categoryfilters.name": "Kategoriebasierte Filter (�berschreiben Einzelliste)",
+  "page.categoryfilters.tooltip": "Schalte breite Kategorien wie Waffen, Werkzeuge, Artefakte usw. ein. Diese werden angewendet, bevor die Einzelliste des Beutefilters greift.",
+
+  "page.sortedlist.name": "Gefilterte Gegenst�nde alphabetisch anzeigen/bearbeiten",
+  "page.sortedlist.tooltip": "Zeigt alle gefilterten Gegenst�nde alphabetisch sortiert an und erm�glicht das Umschalten.",
+
+  "page.sortedlist.title": "Gefilterte Beute alphabetisch auflisten",
+  "page.sortedlist.section": "Gefilterte Beute alphabetisch auflisten",
+  "page.sortedlist.description": "Die unten angezeigten Gegenst�nde sind alphabetisch sortiert. Schalte sie ein oder aus, um sie automatisch zu filtern oder aufzunehmen.",
+
+  "item.entry.name": "{{item}} ({{id}})",
+  "item.entry.tooltip": "Ein- oder ausschalten, ob dieser Gegenstand gefiltert werden soll.",
+
+  "page.categoryfilters.title": "Kategorie-Filter",
+
+  "category.section.title": "Kategorie-basierte Filter",
+  "category.section.tooltip": "Diese Optionen wenden breite Filter basierend auf Gegenstandstypen oder Kategorien an.",
+  "category.section.description": "Wenn eine Kategorie hier aktiviert ist, werden alle passenden Gegenst�nde gefiltert � auch wenn sie nicht in der Einzelliste stehen.",
+
+  "category.main.title": "Hauptkategorien",
+  "category.main.description": "Diese wirken auf breite Gegenstandsgruppen wie Waffen, Werkzeuge, Kleidung oder Objekt-Typen.",
+
+  "category.weapons": "Waffen",
+  "category.weapons.tooltip": "Filtert alle Nahkampfwaffen (Schwerter, Dolche, Keulen usw.).",
+
+  "category.tools": "Werkzeuge",
+  "category.tools.tooltip": "Filtert alle Werkzeuge (�xte, Spitzhacken, Harken, Gie�kannen, Angelruten usw.).",
+
+  "category.boots": "Stiefel",
+  "category.boots.tooltip": "Filtert alle Stiefel und Schuhe.",
+
+  "category.hats": "H�te",
+  "category.hats.tooltip": "Filtert alle H�te.",
+
+  "category.shirts": "Shirts",
+  "category.shirts.tooltip": "Filtert alle Shirts.",
+
+  "category.pants": "Hosen",
+  "category.pants.tooltip": "Filtert alle Hosen.",
+
+  "category.rings": "Ringe",
+  "category.rings.tooltip": "Filtert alle Ringe.",
+
+  "category.objects": "Objekte",
+  "category.objects.tooltip": "Filtert alle normalen Objektgegenst�nde (QualifiedItemId beginnt mit (O)).",
+
+  "category.artifacts": "Artefakte",
+  "category.artifacts.tooltip": "Filtert alle Artefakte.",
+
+  "subcategory.title": "Unterkategorien",
+  "subcategory.description": "Diese Kategorien nutzen die Objektklassifizierung des Spiels (Fisch, Milch, Monsterbeute usw.).",
+
+  "subcategory.fish": "Fisch",
+  "subcategory.fish.tooltip": "Filtert alle Fische.",
+
+  "subcategory.eggs": "Eier",
+  "subcategory.eggs.tooltip": "Filtert alle Eier.",
+
+  "subcategory.milk": "Milch",
+  "subcategory.milk.tooltip": "Filtert alle Milcherzeugnisse.",
+
+  "subcategory.food": "Essen (Kochen)",
+  "subcategory.food.tooltip": "Filtert alle gekochten Gerichte.",
+
+  "subcategory.crafting": "Handwerksmaterialien",
+  "subcategory.crafting.tooltip": "Filtert alle Materialien zum Herstellen.",
+
+  "subcategory.bigcraftables": "Gro�e Handwerksobjekte",
+  "subcategory.bigcraftables.tooltip": "Filtert alle gro�en herstellbaren Objekte.",
+
+  "subcategory.minerals": "Mineralien",
+  "subcategory.minerals.tooltip": "Filtert alle Mineralien.",
+
+  "subcategory.meat": "Fleisch",
+  "subcategory.meat.tooltip": "Filtert alle Fleischprodukte.",
+
+  "subcategory.metal": "Metallressourcen",
+  "subcategory.metal.tooltip": "Filtert alle Metallressourcen.",
+
+  "subcategory.building": "Baumaterialien",
+  "subcategory.building.tooltip": "Filtert alle Baumaterialien.",
+
+  "subcategory.pierre": "Pierre-Shop-Artikel",
+  "subcategory.pierre.tooltip": "Filtert alle Gegenst�nde, die bei Pierre verkauft werden.",
+
+  "subcategory.gus": "Gus-Shop-Artikel",
+  "subcategory.gus.tooltip": "Filtert alle Gegenst�nde, die bei Gus verkauft werden.",
+
+  "subcategory.fertilizer": "D�nger",
+  "subcategory.fertilizer.tooltip": "Filtert alle D�nger.",
+
+  "subcategory.junk": "Schrott / M�ll",
+  "subcategory.junk.tooltip": "Filtert alle M�ll- und Schrottgegenst�nde.",
+
+  "subcategory.bait": "K�der",
+  "subcategory.bait.tooltip": "Filtert alle K�der.",
+
+  "subcategory.tackle": "Angelzubeh�r",
+  "subcategory.tackle.tooltip": "Filtert s�mtliches Angelzubeh�r.",
+
+  "subcategory.ingredients": "Zutaten",
+  "subcategory.ingredients.tooltip": "Filtert alle Zutaten.",
+
+  "subcategory.artisangoods": "Handwerkswaren",
+  "subcategory.artisangoods.tooltip": "Filtert alle handwerklich hergestellten Waren.",
+
+  "subcategory.syrups": "Sirup",
+  "subcategory.syrups.tooltip": "Filtert alle Sirupsorten.",
+
+  "subcategory.monsterloot": "Monsterbeute",
+  "subcategory.monsterloot.tooltip": "Filtert alle Monsterbeute.",
+
+  "subcategory.seeds": "Samen",
+  "subcategory.seeds.tooltip": "Filtert alle Samen.",
+
+  "subcategory.vegetables": "Gem�se",
+  "subcategory.vegetables.tooltip": "Filtert s�mtliches Gem�se.",
+
+  "subcategory.fruit": "Obst",
+  "subcategory.fruit.tooltip": "Filtert s�mtliches Obst.",
+
+  "subcategory.flowers": "Blumen",
+  "subcategory.flowers.tooltip": "Filtert alle Blumen.",
+
+  "subcategory.forage": "Sammelbares",
+  "subcategory.forage.tooltip": "Filtert alle sammelbaren Gegenst�nde."
+}

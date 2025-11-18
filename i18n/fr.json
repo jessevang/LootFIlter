@@ -1,0 +1,145 @@
+{
+  "main.description": "Pour ajouter ou retirer un objet du filtre de butin, cliquez sur l�objet dans l�inventaire pour le tenir en main, puis appuyez sur la touche du filtre. R�p�tez la m�me action pour retirer l�objet du filtre. Si vous filtrez un objet par accident et que vous ne pouvez plus le ramasser, appuyez sur la touche (par d�faut Z) pour d�sactiver temporairement le filtre de butin, puis retirez l�objet du filtre comme d�crit ci-dessus.",
+
+  "key.addremove.name": "Ajouter/retirer un objet du filtre",
+  "key.addremove.tooltip": "Lorsque l�inventaire est ouvert, s�lectionnez un objet en cliquant dessus, puis appuyez sur cette touche. L�objet sera ajout� ou retir� de la liste du filtre de butin.",
+
+  "key.toggle.name": "Activer/D�sactiver le filtre de butin",
+  "key.toggle.tooltip": "Permet d�activer ou d�sactiver le filtre de butin. Utile si vous filtrez involontairement un objet que vous souhaitez ramasser.",
+
+  "distance.name": "Distance filtr�e (en cases)",
+  "distance.tooltip": "Nombre de cases (8 par d�faut) dont les objets filtr�s s��loignent du joueur.",
+
+  "removefiltered.name": "Supprimer les objets filtr�s du jeu",
+  "removefiltered.tooltip": "Si activ�, les objets filtr�s sont supprim�s au lieu d��tre d�pos�s pr�s du joueur.",
+
+  "devmode.name": "Activer le mode d�veloppeur",
+  "devmode.tooltip": "Affiche des journaux de d�bogage suppl�mentaires dans la console.",
+
+  "page.categoryfilters.name": "Filtres par cat�gorie (remplace la liste individuelle)",
+  "page.categoryfilters.tooltip": "Active des cat�gories larges comme armes, outils, artefacts, etc. Ces filtres s�appliquent avant la liste individuelle du filtre de butin.",
+
+  "page.sortedlist.name": "Voir/Modifier les objets filtr�s (ordre alphab�tique)",
+  "page.sortedlist.tooltip": "Affiche et permet d�activer/d�sactiver les objets filtr�s, tri�s par ordre alphab�tique.",
+
+  "page.sortedlist.title": "Liste des objets filtr�s (ordre alphab�tique)",
+  "page.sortedlist.section": "Liste des objets filtr�s (ordre alphab�tique)",
+  "page.sortedlist.description": "Les objets ci-dessous sont class�s par ordre alphab�tique. Activez ou d�sactivez-les pour les inclure ou exclure de la collecte automatique.",
+
+  "item.entry.name": "{{item}} ({{id}})",
+  "item.entry.tooltip": "Activer ou d�sactiver le filtrage de cet objet.",
+
+  "page.categoryfilters.title": "Filtres par cat�gorie",
+
+  "category.section.title": "Filtres bas�s sur les cat�gories",
+  "category.section.tooltip": "Ces options appliquent des filtres larges selon le type ou la cat�gorie des objets.",
+  "category.section.description": "Si une cat�gorie est activ�e, tout objet qui en fait partie sera filtr�, m�me s�il ne se trouve pas dans la liste individuelle.",
+
+  "category.main.title": "Cat�gories principales",
+  "category.main.description": "S�appliquent aux grands types d�objets comme les armes, outils, v�tements et objets g�n�raux.",
+
+  "category.weapons": "Armes",
+  "category.weapons.tooltip": "Filtre toutes les armes de m�l�e (�p�es, dagues, massues, etc.).",
+
+  "category.tools": "Outils",
+  "category.tools.tooltip": "Filtre tous les outils (haches, pioches, houes, arrosoirs, cannes � p�che, etc.).",
+
+  "category.boots": "Bottes",
+  "category.boots.tooltip": "Filtre toutes les bottes et chaussures.",
+
+  "category.hats": "Chapeaux",
+  "category.hats.tooltip": "Filtre tous les chapeaux.",
+
+  "category.shirts": "Chemises",
+  "category.shirts.tooltip": "Filtre toutes les chemises.",
+
+  "category.pants": "Pantalons",
+  "category.pants.tooltip": "Filtre tous les pantalons.",
+
+  "category.rings": "Anneaux",
+  "category.rings.tooltip": "Filtre tous les anneaux.",
+
+  "category.objects": "Objets",
+  "category.objects.tooltip": "Filtre tous les objets normaux (QualifiedItemId commen�ant par (O)).",
+
+  "category.artifacts": "Artefacts",
+  "category.artifacts.tooltip": "Filtre tous les artefacts.",
+
+  "subcategory.title": "Sous-cat�gories",
+  "subcategory.description": "Utilisent les cat�gories internes du jeu (poissons, lait, butin de monstre, etc.) pour un filtrage plus pr�cis.",
+
+  "subcategory.fish": "Poissons",
+  "subcategory.fish.tooltip": "Filtre tous les poissons.",
+
+  "subcategory.eggs": "�ufs",
+  "subcategory.eggs.tooltip": "Filtre tous les �ufs.",
+
+  "subcategory.milk": "Lait",
+  "subcategory.milk.tooltip": "Filtre tous les produits laitiers.",
+
+  "subcategory.food": "Nourriture (cuisine)",
+  "subcategory.food.tooltip": "Filtre tous les plats cuisin�s.",
+
+  "subcategory.crafting": "Mat�riaux d�artisanat",
+  "subcategory.crafting.tooltip": "Filtre tous les mat�riaux d�artisanat.",
+
+  "subcategory.bigcraftables": "Grandes fabrications",
+  "subcategory.bigcraftables.tooltip": "Filtre tous les grands objets artisanaux.",
+
+  "subcategory.minerals": "Min�raux",
+  "subcategory.minerals.tooltip": "Filtre tous les min�raux.",
+
+  "subcategory.meat": "Viande",
+  "subcategory.meat.tooltip": "Filtre tous les produits � base de viande.",
+
+  "subcategory.metal": "Ressources m�talliques",
+  "subcategory.metal.tooltip": "Filtre toutes les ressources m�talliques.",
+
+  "subcategory.building": "Mat�riaux de construction",
+  "subcategory.building.tooltip": "Filtre tous les mat�riaux de construction.",
+
+  "subcategory.pierre": "Articles de Pierre",
+  "subcategory.pierre.tooltip": "Filtre les articles vendus chez Pierre.",
+
+  "subcategory.gus": "Articles de Gus",
+  "subcategory.gus.tooltip": "Filtre les articles vendus chez Gus.",
+
+  "subcategory.fertilizer": "Engrais",
+  "subcategory.fertilizer.tooltip": "Filtre tous les engrais.",
+
+  "subcategory.junk": "D�chets",
+  "subcategory.junk.tooltip": "Filtre tous les objets consid�r�s comme des d�chets.",
+
+  "subcategory.bait": "App�t",
+  "subcategory.bait.tooltip": "Filtre tous les app�ts.",
+
+  "subcategory.tackle": "�quipement de p�che",
+  "subcategory.tackle.tooltip": "Filtre tout l��quipement de p�che.",
+
+  "subcategory.ingredients": "Ingr�dients",
+  "subcategory.ingredients.tooltip": "Filtre tous les ingr�dients.",
+
+  "subcategory.artisangoods": "Produits artisanaux",
+  "subcategory.artisangoods.tooltip": "Filtre tous les produits artisanaux.",
+
+  "subcategory.syrups": "Sirops",
+  "subcategory.syrups.tooltip": "Filtre tous les sirops.",
+
+  "subcategory.monsterloot": "Butin de monstre",
+  "subcategory.monsterloot.tooltip": "Filtre tout le butin de monstre.",
+
+  "subcategory.seeds": "Graines",
+  "subcategory.seeds.tooltip": "Filtre toutes les graines.",
+
+  "subcategory.vegetables": "L�gumes",
+  "subcategory.vegetables.tooltip": "Filtre tous les l�gumes.",
+
+  "subcategory.fruit": "Fruits",
+  "subcategory.fruit.tooltip": "Filtre tous les fruits.",
+
+  "subcategory.flowers": "Fleurs",
+  "subcategory.flowers.tooltip": "Filtre toutes les fleurs.",
+
+  "subcategory.forage": "Butin naturel",
+  "subcategory.forage.tooltip": "Filtre tous les objets r�colt�s dans la nature."
+}

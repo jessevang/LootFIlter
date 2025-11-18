@@ -1,7 +1,7 @@
 {
   "Name": "LootFilter",
   "Author": "Darkmushu1",
-  "Version": "1.0.3",
+  "Version": "1.0.5",
   "Description": "Prevents filtered loot from magnet pick up",
   "UniqueID": "Darkmushu1.LootFilter",
   "EntryDll": "LootFilter.dll",
@@ -13,7 +13,7 @@
       "IsOptional": true,
       "MinimumVersion": "1.6.0"
     }
-  ]
+  ]              
 }
 
 

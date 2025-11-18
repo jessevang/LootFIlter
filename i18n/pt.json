@@ -1,0 +1,145 @@
+{
+  "main.description": "Para adicionar ou remover um item do filtro de saques, clique no item no invent�rio para segur�-lo e depois pressione a tecla de atalho do filtro. Repita o processo para remover o item do filtro. Se voc� filtrar um item por engano e n�o conseguir peg�-lo, pressione a tecla (padr�o Z) para desativar temporariamente o filtro e depois remova o item normalmente.",
+
+  "key.addremove.name": "Adicionar/Remover item do filtro",
+  "key.addremove.tooltip": "Com o invent�rio aberto, clique em um item para segur�-lo e depois pressione esta tecla. O item ser� adicionado ou removido da lista do filtro de saques.",
+
+  "key.toggle.name": "Ativar/Desativar filtro de saques",
+  "key.toggle.tooltip": "Esta tecla ativa ou desativa o filtro de saques. �til quando voc� filtra acidentalmente um item que ainda precisa pegar.",
+
+  "distance.name": "Dist�ncia filtrada (em blocos)",
+  "distance.tooltip": "N�mero de blocos (padr�o 8) para os quais os itens filtrados ser�o afastados do jogador.",
+
+  "removefiltered.name": "Remover itens filtrados do jogo",
+  "removefiltered.tooltip": "Se ativado, os itens filtrados ser�o exclu�dos em vez de serem largados no ch�o.",
+
+  "devmode.name": "Ativar modo desenvolvedor",
+  "devmode.tooltip": "Exibe registros de depura��o adicionais no console.",
+
+  "page.categoryfilters.name": "Filtros por categoria (substitui a lista individual)",
+  "page.categoryfilters.tooltip": "Ativa categorias amplas como armas, ferramentas, artefatos etc. Esses filtros s�o aplicados antes da lista de itens individuais.",
+
+  "page.sortedlist.name": "Ver/Editar itens filtrados (ordem alfab�tica)",
+  "page.sortedlist.tooltip": "Exibe todos os itens filtrados em ordem alfab�tica e permite ativ�-los ou desativ�-los individualmente.",
+
+  "page.sortedlist.title": "Lista de itens filtrados (ordem alfab�tica)",
+  "page.sortedlist.section": "Lista de itens filtrados (ordem alfab�tica)",
+  "page.sortedlist.description": "Os itens abaixo est�o organizados em ordem alfab�tica. Ative ou desative cada um para inclu�-lo ou exclu�-lo da coleta autom�tica.",
+
+  "item.entry.name": "{{item}} ({{id}})",
+  "item.entry.tooltip": "Define se este item deve ser filtrado ou n�o.",
+
+  "page.categoryfilters.title": "Filtros por categoria",
+
+  "category.section.title": "Filtros baseados em categorias",
+  "category.section.tooltip": "Essas op��es aplicam filtros amplos com base no tipo ou categoria do item.",
+  "category.section.description": "Se uma categoria for ativada aqui, todos os itens que pertencem a ela ser�o filtrados mesmo que n�o estejam na lista individual.",
+
+  "category.main.title": "Categorias principais",
+  "category.main.description": "Aplicam-se a grupos amplos como armas, ferramentas, roupas e objetos gerais.",
+
+  "category.weapons": "Armas",
+  "category.weapons.tooltip": "Filtra todas as armas corpo a corpo (espadas, adagas, clavas etc.).",
+
+  "category.tools": "Ferramentas",
+  "category.tools.tooltip": "Filtra todas as ferramentas (machados, picaretas, enxadas, regadores, varas de pesca etc.).",
+
+  "category.boots": "Botas",
+  "category.boots.tooltip": "Filtra todas as botas e cal�ados.",
+
+  "category.hats": "Chap�us",
+  "category.hats.tooltip": "Filtra todos os chap�us.",
+
+  "category.shirts": "Camisas",
+  "category.shirts.tooltip": "Filtra todas as camisas.",
+
+  "category.pants": "Cal�as",
+  "category.pants.tooltip": "Filtra todas as cal�as.",
+
+  "category.rings": "An�is",
+  "category.rings.tooltip": "Filtra todos os an�is.",
+
+  "category.objects": "Objetos",
+  "category.objects.tooltip": "Filtra todos os objetos comuns (c�digo come�ando com (O)).",
+
+  "category.artifacts": "Artefatos",
+  "category.artifacts.tooltip": "Filtra todos os artefatos.",
+
+  "subcategory.title": "Subcategorias",
+  "subcategory.description": "Usam as categorias internas do jogo (peixes, leite, saque de monstros etc.) para filtragem mais detalhada.",
+
+  "subcategory.fish": "Peixes",
+  "subcategory.fish.tooltip": "Filtra todos os peixes.",
+
+  "subcategory.eggs": "Ovos",
+  "subcategory.eggs.tooltip": "Filtra todos os ovos.",
+
+  "subcategory.milk": "Leite",
+  "subcategory.milk.tooltip": "Filtra produtos derivados de leite.",
+
+  "subcategory.food": "Comida (Culin�ria)",
+  "subcategory.food.tooltip": "Filtra todos os alimentos cozidos.",
+
+  "subcategory.crafting": "Materiais de crafting",
+  "subcategory.crafting.tooltip": "Filtra todos os materiais usados em crafting.",
+
+  "subcategory.bigcraftables": "Itens grandes de crafting",
+  "subcategory.bigcraftables.tooltip": "Filtra todos os itens grandes fabric�veis.",
+
+  "subcategory.minerals": "Minerais",
+  "subcategory.minerals.tooltip": "Filtra todos os minerais.",
+
+  "subcategory.meat": "Carne",
+  "subcategory.meat.tooltip": "Filtra produtos de carne.",
+
+  "subcategory.metal": "Recursos met�licos",
+  "subcategory.metal.tooltip": "Filtra todos os recursos de metal.",
+
+  "subcategory.building": "Materiais de constru��o",
+  "subcategory.building.tooltip": "Filtra todos os materiais de constru��o.",
+
+  "subcategory.pierre": "Itens da loja do Pierre",
+  "subcategory.pierre.tooltip": "Filtra itens vendidos na loja do Pierre.",
+
+  "subcategory.gus": "Itens do Gus",
+  "subcategory.gus.tooltip": "Filtra itens vendidos no bar do Gus.",
+
+  "subcategory.fertilizer": "Fertilizantes",
+  "subcategory.fertilizer.tooltip": "Filtra todos os fertilizantes.",
+
+  "subcategory.junk": "Lixo",
+  "subcategory.junk.tooltip": "Filtra itens considerados lixo.",
+
+  "subcategory.bait": "Isca",
+  "subcategory.bait.tooltip": "Filtra todas as iscas.",
+
+  "subcategory.tackle": "Equipamentos de pesca",
+  "subcategory.tackle.tooltip": "Filtra todos os acess�rios de pesca.",
+
+  "subcategory.ingredients": "Ingredientes",
+  "subcategory.ingredients.tooltip": "Filtra todos os ingredientes.",
+
+  "subcategory.artisangoods": "Produtos artesanais",
+  "subcategory.artisangoods.tooltip": "Filtra todos os produtos artesanais.",
+
+  "subcategory.syrups": "Xaropes",
+  "subcategory.syrups.tooltip": "Filtra todos os xaropes.",
+
+  "subcategory.monsterloot": "Saque de monstros",
+  "subcategory.monsterloot.tooltip": "Filtra todos os itens deixados por monstros.",
+
+  "subcategory.seeds": "Sementes",
+  "subcategory.seeds.tooltip": "Filtra todas as sementes.",
+
+  "subcategory.vegetables": "Vegetais",
+  "subcategory.vegetables.tooltip": "Filtra todos os vegetais.",
+
+  "subcategory.fruit": "Frutas",
+  "subcategory.fruit.tooltip": "Filtra todas as frutas.",
+
+  "subcategory.flowers": "Flores",
+  "subcategory.flowers.tooltip": "Filtra todas as flores.",
+
+  "subcategory.forage": "Forrageamento",
+  "subcategory.forage.tooltip": "Filtra todos os itens de coleta natural."
+}

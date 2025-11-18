@@ -1,0 +1,145 @@
+﻿{
+  "main.description": "要将物品加入或移出战利品过滤器，请在物品栏中左键点击该物品使其处于拿取状态，然后按下过滤器快捷键。重复同样的操作即可取消过滤。如果你误将物品加入过滤器导致无法拾取，请按下快捷键（默认 Z）暂时关闭过滤器，然后按照上述步骤移除过滤。",
+
+  "key.addremove.name": "添加/移除过滤物品",
+  "key.addremove.tooltip": "打开物品栏后，点击物品使其处于拿取状态，然后按下该快捷键，即可将物品添加到过滤列表或从过滤列表中移除。",
+
+  "key.toggle.name": "切换战利品过滤开关",
+  "key.toggle.tooltip": "按下该快捷键可开启或关闭战利品过滤。当你误过滤需要拾取的物品时非常有用。",
+
+  "distance.name": "过滤距离（格子）",
+  "distance.tooltip": "被过滤的物品会被推离玩家的距离（默认 8 格）。",
+
+  "removefiltered.name": "删除过滤物品",
+  "removefiltered.tooltip": "若启用，过滤的物品会直接被删除，而不是掉落在地上。",
+
+  "devmode.name": "启用开发者模式",
+  "devmode.tooltip": "在控制台显示额外的调试日志。",
+
+  "page.categoryfilters.name": "按类别过滤（覆盖单个过滤列表）",
+  "page.categoryfilters.tooltip": "启用武器、工具、文物等大类的批量过滤。这些过滤优先于单个物品过滤。",
+
+  "page.sortedlist.name": "按字母顺序查看/编辑过滤物品",
+  "page.sortedlist.tooltip": "按字母顺序查看所有过滤物品，并可单独切换过滤状态。",
+
+  "page.sortedlist.title": "按字母顺序列出过滤物品",
+  "page.sortedlist.section": "按字母顺序列出过滤物品",
+  "page.sortedlist.description": "以下物品按字母顺序排列。可切换它们是否自动被过滤。",
+
+  "item.entry.name": "{{item}} ({{id}})",
+  "item.entry.tooltip": "切换该物品是否需要被过滤。",
+
+  "page.categoryfilters.title": "类别过滤",
+
+  "category.section.title": "基于类别的过滤",
+  "category.section.tooltip": "根据物品类型或类别应用更广范围的过滤。",
+  "category.section.description": "如果启用某个类别，所有属于该类别的物品都会被过滤，即使它们不在单个过滤列表中。",
+
+  "category.main.title": "主要类别",
+  "category.main.description": "适用于武器、工具、服装、普通物品等广泛类型。",
+
+  "category.weapons": "武器",
+  "category.weapons.tooltip": "过滤所有近战武器（剑、匕首、锤棒等）。",
+
+  "category.tools": "工具",
+  "category.tools.tooltip": "过滤所有工具（斧头、镐、锄头、洒水壶、鱼竿等）。",
+
+  "category.boots": "靴子",
+  "category.boots.tooltip": "过滤所有靴子和鞋类。",
+
+  "category.hats": "帽子",
+  "category.hats.tooltip": "过滤所有帽子。",
+
+  "category.shirts": "上衣",
+  "category.shirts.tooltip": "过滤所有上衣。",
+
+  "category.pants": "裤子",
+  "category.pants.tooltip": "过滤所有裤装。",
+
+  "category.rings": "戒指",
+  "category.rings.tooltip": "过滤所有戒指。",
+
+  "category.objects": "物品",
+  "category.objects.tooltip": "过滤所有普通物品（QualifiedItemId 以 (O) 开头）。",
+
+  "category.artifacts": "文物",
+  "category.artifacts.tooltip": "过滤所有文物。",
+
+  "subcategory.title": "子类别",
+  "subcategory.description": "使用游戏内部类别（如鱼类、牛奶、怪物掉落等）进行更精确的过滤。",
+
+  "subcategory.fish": "鱼",
+  "subcategory.fish.tooltip": "过滤所有鱼类物品。",
+
+  "subcategory.eggs": "鸡蛋",
+  "subcategory.eggs.tooltip": "过滤所有蛋类物品。",
+
+  "subcategory.milk": "牛奶",
+  "subcategory.milk.tooltip": "过滤所有牛奶及乳制品。",
+
+  "subcategory.food": "食物（料理）",
+  "subcategory.food.tooltip": "过滤所有烹饪食品。",
+
+  "subcategory.crafting": "制作材料",
+  "subcategory.crafting.tooltip": "过滤所有制作材料。",
+
+  "subcategory.bigcraftables": "大型手工品",
+  "subcategory.bigcraftables.tooltip": "过滤所有大型制作物品。",
+
+  "subcategory.minerals": "矿物",
+  "subcategory.minerals.tooltip": "过滤所有矿物。",
+
+  "subcategory.meat": "肉类",
+  "subcategory.meat.tooltip": "过滤所有肉类物品。",
+
+  "subcategory.metal": "金属资源",
+  "subcategory.metal.tooltip": "过滤所有金属类资源。",
+
+  "subcategory.building": "建筑材料",
+  "subcategory.building.tooltip": "过滤所有建筑材料。",
+
+  "subcategory.pierre": "皮埃尔商店物品",
+  "subcategory.pierre.tooltip": "过滤皮埃尔商店出售的物品。",
+
+  "subcategory.gus": "格斯商店物品",
+  "subcategory.gus.tooltip": "过滤格斯酒馆出售的物品。",
+
+  "subcategory.fertilizer": "肥料",
+  "subcategory.fertilizer.tooltip": "过滤所有肥料。",
+
+  "subcategory.junk": "垃圾",
+  "subcategory.junk.tooltip": "过滤所有垃圾类物品。",
+
+  "subcategory.bait": "鱼饵",
+  "subcategory.bait.tooltip": "过滤所有鱼饵。",
+
+  "subcategory.tackle": "鱼具",
+  "subcategory.tackle.tooltip": "过滤所有钓鱼配件。",
+
+  "subcategory.ingredients": "食材",
+  "subcategory.ingredients.tooltip": "过滤所有食材物品。",
+
+  "subcategory.artisangoods": "手工制品",
+  "subcategory.artisangoods.tooltip": "过滤所有手工制品。",
+
+  "subcategory.syrups": "糖浆",
+  "subcategory.syrups.tooltip": "过滤所有糖浆。",
+
+  "subcategory.monsterloot": "怪物掉落",
+  "subcategory.monsterloot.tooltip": "过滤所有来自怪物的掉落物。",
+
+  "subcategory.seeds": "种子",
+  "subcategory.seeds.tooltip": "过滤所有种子。",
+
+  "subcategory.vegetables": "蔬菜",
+  "subcategory.vegetables.tooltip": "过滤所有蔬菜。",
+
+  "subcategory.fruit": "水果",
+  "subcategory.fruit.tooltip": "过滤所有水果。",
+
+  "subcategory.flowers": "花",
+  "subcategory.flowers.tooltip": "过滤所有花卉物品。",
+
+  "subcategory.forage": "采集物",
+  "subcategory.forage.tooltip": "过滤所有可在野外采集的物品。"
+}

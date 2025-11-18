@@ -145,6 +145,7 @@ namespace LootFilter
             RegisterConfigMenu();
         }
 
+
         private void RegisterConfigMenu()
         {
             var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
@@ -152,11 +153,10 @@ namespace LootFilter
                 return;
 
             if (shouldRefreshGMCM)
-                configMenu.Unregister(this.ModManifest); // Removes my GMCM and reloads it so that updated loot filter list is updated in GMCM
+                configMenu.Unregister(this.ModManifest);
 
             Config.CategoryFilters ??= new CategoryFiltersConfig();
 
-            // register mod
             configMenu.Register(
                 mod: this.ModManifest,
                 reset: () =>
@@ -167,24 +167,25 @@ namespace LootFilter
                 save: () => this.Helper.WriteConfig(this.Config)
             );
 
-            // MAIN PAGE
+            // MAIN PAGE ---------------------------------------------------
+
             configMenu.AddParagraph(
                 ModManifest,
-                text: () => "To add/remove item to loot Filter, Left Click the item in menu, and press the Filter item hotkey to Add to the filter list. You can repeat same step to unfilter items. If you accidently filter item and can't pick up item press the hotkey (default Z) to turn off loot filter, then follow the same steps here to remove a filter item."
+                text: () => Helper.Translation.Get("main.description")
             );
 
             configMenu.AddKeybindList(
                 mod: ModManifest,
-                name: () => "Add/Remove Item to filter list",
-                tooltip: () => "When inventory menu is open and the player clicks on a item to hold the item then press this hotkey, the item is added to loot filter, or if item is already in the loot filter the item would instead be removed from the loot filter.",
+                name: () => Helper.Translation.Get("key.addremove.name"),
+                tooltip: () => Helper.Translation.Get("key.addremove.tooltip"),
                 getValue: () => Config.KeyToAddOrRemoveFromLootFilter,
                 setValue: value => Config.KeyToAddOrRemoveFromLootFilter = value
             );
 
             configMenu.AddKeybindList(
                 mod: ModManifest,
-                name: () => "Toggle Loot Filter On/Off",
-                tooltip: () => "Pressing this hotkey will turn the loot filter on or off. Great when you accidently added an item to loot filter and can't pick up the item. Use this to turn off the loot filter then pick up the item.",
+                name: () => Helper.Translation.Get("key.toggle.name"),
+                tooltip: () => Helper.Translation.Get("key.toggle.tooltip"),
                 getValue: () => Config.KeyToTurnOffOnLootFilter,
                 setValue: value => Config.KeyToTurnOffOnLootFilter = value
             );
@@ -193,245 +194,202 @@ namespace LootFilter
                 mod: ModManifest,
                 getValue: () => Instance.Config.distanceFilterItemMovesAwayFromPlayer,
                 setValue: value => Instance.Config.distanceFilterItemMovesAwayFromPlayer = (int)value,
-                name: () => "#Tile Filtered distance",
-                tooltip: () => "Number of Tile distance (default 8) that the Filter Item Moves Away From Player.",
+                name: () => Helper.Translation.Get("distance.name"),
+                tooltip: () => Helper.Translation.Get("distance.tooltip"),
                 min: 5,
                 max: 80,
                 interval: 1
             );
 
             configMenu.AddBoolOption(
-                mod: this.ModManifest,
+                mod: ModManifest,
                 getValue: () => Config.RemoveFilteredItemFromGame,
                 setValue: value => Config.RemoveFilteredItemFromGame = value,
-                name: () => "Remove Filtered Items from Game",
-                tooltip: () => "If true, filtered items will be deleted instead of dropped nearby."
+                name: () => Helper.Translation.Get("removefiltered.name"),
+                tooltip: () => Helper.Translation.Get("removefiltered.tooltip")
             );
 
             configMenu.AddBoolOption(
-                mod: this.ModManifest,
+                mod: ModManifest,
                 getValue: () => Config.DeveloperMode,
                 setValue: value => Config.DeveloperMode = value,
-                name: () => "Enable Developer Mode",
-                tooltip: () => "Turns on extra debug logging that appears in console."
+                name: () => Helper.Translation.Get("devmode.name"),
+                tooltip: () => Helper.Translation.Get("devmode.tooltip")
             );
 
-            // Link to CATEGORY FILTERS page
+            // PAGE LINKS ---------------------------------------------------------
+
             configMenu.AddPageLink(
-                mod: this.ModManifest,
+                mod: ModManifest,
                 pageId: "category_filters",
-                text: () => "Category-based filters (override item list)",
-                tooltip: () => "Toggle broad categories like weapons, tools, artifacts, etc. These apply before the per-item loot filter list."
+                text: () => Helper.Translation.Get("page.categoryfilters.name"),
+                tooltip: () => Helper.Translation.Get("page.categoryfilters.tooltip")
             );
 
-            // Link to alphabetized version
             configMenu.AddPageLink(
-                mod: this.ModManifest,
+                mod: ModManifest,
                 pageId: "loot_filter_list_sorted",
-                text: () => "View/Edit Loot Filtered Items sorted alphabetically",
-                tooltip: () => "Toggle filtered items, listed alphabetically."
+                text: () => Helper.Translation.Get("page.sortedlist.name"),
+                tooltip: () => Helper.Translation.Get("page.sortedlist.tooltip")
             );
 
-            // PAGE: loot_filter_list_sorted (existing behavior)
+            // PAGE: loot_filter_list_sorted -------------------------------------
+
             configMenu.AddPage(
-                mod: this.ModManifest,
+                mod: ModManifest,
                 pageId: "loot_filter_list_sorted",
-                pageTitle: () => "List Loot Filter Items Alphabetically"
+                pageTitle: () => Helper.Translation.Get("page.sortedlist.title")
             );
 
-            configMenu.SetTitleScreenOnlyForNextOptions(this.ModManifest, false);
-            configMenu.AddSectionTitle(this.ModManifest, () => "List Loot Filter Items Alphabetically");
-            configMenu.AddParagraph(this.ModManifest, () => "Items below are sorted alphabetically. Toggle to include or exclude them from auto-pickup.");
+            configMenu.SetTitleScreenOnlyForNextOptions(ModManifest, false);
+            configMenu.AddSectionTitle(ModManifest, () => Helper.Translation.Get("page.sortedlist.section"));
+            configMenu.AddParagraph(ModManifest, () => Helper.Translation.Get("page.sortedlist.description"));
 
             foreach (var filteredItem in Config.ObjectToFilter.OrderBy(f => f.Name, StringComparer.OrdinalIgnoreCase))
             {
                 var localItem = filteredItem;
 
                 configMenu.AddBoolOption(
-                    mod: this.ModManifest,
+                    mod: ModManifest,
                     getValue: () => localItem.ShouldFilter,
-                    setValue: value => localItem.ShouldFilter = value,
-                    name: () => $"{localItem.Name}: ({localItem.ItemId})",
-                    tooltip: () => "Toggle whether this item should be filtered when picked up."
+                    setValue: v => localItem.ShouldFilter = v,
+                    name: () => Helper.Translation.Get("item.entry.name", new { item = localItem.Name, id = localItem.ItemId }),
+                    tooltip: () => Helper.Translation.Get("item.entry.tooltip")
                 );
             }
 
-            // PAGE: category_filters (new)
+            // PAGE: category_filters ---------------------------------------------
+
             configMenu.AddPage(
-                mod: this.ModManifest,
+                mod: ModManifest,
                 pageId: "category_filters",
-                pageTitle: () => "Category Filters"
+                pageTitle: () => Helper.Translation.Get("page.categoryfilters.title")
             );
 
-            configMenu.SetTitleScreenOnlyForNextOptions(this.ModManifest, false);
+            configMenu.SetTitleScreenOnlyForNextOptions(ModManifest, false);
 
-            // Top note
             configMenu.AddSectionTitle(
-                this.ModManifest,
-                text: () => "Category-based Filters",
-                tooltip: () => "These options apply broad filters by item type or category. If enabled, they override the per-item loot filter list."
+                ModManifest,
+                text: () => Helper.Translation.Get("category.section.title"),
+                tooltip: () => Helper.Translation.Get("category.section.tooltip")
             );
 
             configMenu.AddParagraph(
-                this.ModManifest,
-                () => "If a category or subcategory is enabled here, any item that matches it will be treated as filtered even if it is not in the per-item loot filter list. This runs BEFORE item-specific filters."
+                ModManifest,
+                () => Helper.Translation.Get("category.section.description")
             );
 
             // MAIN CATEGORIES
-            configMenu.AddSectionTitle(this.ModManifest, () => "Main Categories");
-            configMenu.AddParagraph(this.ModManifest, () => "These apply to broad item types based on QualifiedItemId or item class.");
+            configMenu.AddSectionTitle(ModManifest, () => Helper.Translation.Get("category.main.title"));
+            configMenu.AddParagraph(ModManifest, () => Helper.Translation.Get("category.main.description"));
 
-            configMenu.AddBoolOption(
-                mod: this.ModManifest,
-                getValue: () => Config.CategoryFilters.Weapons,
-                setValue: value => Config.CategoryFilters.Weapons = value,
-                name: () => "Weapons",
-                tooltip: () => "Filter all melee weapons (swords, daggers, clubs, etc.)."
+            configMenu.AddBoolOption(ModManifest,
+                () => Config.CategoryFilters.Weapons,
+                v => Config.CategoryFilters.Weapons = v,
+                name: () => Helper.Translation.Get("category.weapons"),
+                tooltip: () => Helper.Translation.Get("category.weapons.tooltip")
             );
 
-            configMenu.AddBoolOption(
-                mod: this.ModManifest,
-                getValue: () => Config.CategoryFilters.Tools,
-                setValue: value => Config.CategoryFilters.Tools = value,
-                name: () => "Tools",
-                tooltip: () => "Filter all tools (axes, pickaxes, hoes, watering cans, fishing rods, etc.)."
+            configMenu.AddBoolOption(ModManifest,
+                () => Config.CategoryFilters.Tools,
+                v => Config.CategoryFilters.Tools = v,
+                name: () => Helper.Translation.Get("category.tools"),
+                tooltip: () => Helper.Translation.Get("category.tools.tooltip")
             );
 
-            configMenu.AddBoolOption(
-                mod: this.ModManifest,
-                getValue: () => Config.CategoryFilters.Boots,
-                setValue: value => Config.CategoryFilters.Boots = value,
-                name: () => "Boots",
-                tooltip: () => "Filter all boots and footwear."
+            configMenu.AddBoolOption(ModManifest,
+                () => Config.CategoryFilters.Boots,
+                v => Config.CategoryFilters.Boots = v,
+                name: () => Helper.Translation.Get("category.boots"),
+                tooltip: () => Helper.Translation.Get("category.boots.tooltip")
             );
 
-            configMenu.AddBoolOption(
-                mod: this.ModManifest,
-                getValue: () => Config.CategoryFilters.Hats,
-                setValue: value => Config.CategoryFilters.Hats = value,
-                name: () => "Hats",
-                tooltip: () => "Filter all hats."
+            configMenu.AddBoolOption(ModManifest,
+                () => Config.CategoryFilters.Hats,
+                v => Config.CategoryFilters.Hats = v,
+                name: () => Helper.Translation.Get("category.hats"),
+                tooltip: () => Helper.Translation.Get("category.hats.tooltip")
             );
 
-            configMenu.AddBoolOption(
-                mod: this.ModManifest,
-                getValue: () => Config.CategoryFilters.Shirts,
-                setValue: value => Config.CategoryFilters.Shirts = value,
-                name: () => "Shirts",
-                tooltip: () => "Filter all shirts."
+            configMenu.AddBoolOption(ModManifest,
+                () => Config.CategoryFilters.Shirts,
+                v => Config.CategoryFilters.Shirts = v,
+                name: () => Helper.Translation.Get("category.shirts"),
+                tooltip: () => Helper.Translation.Get("category.shirts.tooltip")
             );
 
-            configMenu.AddBoolOption(
-                mod: this.ModManifest,
-                getValue: () => Config.CategoryFilters.Pants,
-                setValue: value => Config.CategoryFilters.Pants = value,
-                name: () => "Pants",
-                tooltip: () => "Filter all pants."
+            configMenu.AddBoolOption(ModManifest,
+                () => Config.CategoryFilters.Pants,
+                v => Config.CategoryFilters.Pants = v,
+                name: () => Helper.Translation.Get("category.pants"),
+                tooltip: () => Helper.Translation.Get("category.pants.tooltip")
             );
 
-            configMenu.AddBoolOption(
-                mod: this.ModManifest,
-                getValue: () => Config.CategoryFilters.Rings,
-                setValue: value => Config.CategoryFilters.Rings = value,
-                name: () => "Rings",
-                tooltip: () => "Filter all rings."
+            configMenu.AddBoolOption(ModManifest,
+                () => Config.CategoryFilters.Rings,
+                v => Config.CategoryFilters.Rings = v,
+                name: () => Helper.Translation.Get("category.rings"),
+                tooltip: () => Helper.Translation.Get("category.rings.tooltip")
             );
 
-            configMenu.AddBoolOption(
-                mod: this.ModManifest,
-                getValue: () => Config.CategoryFilters.Objects,
-                setValue: value => Config.CategoryFilters.Objects = value,
-                name: () => "Objects",
-                tooltip: () => "Filter all regular object items (QualifiedItemId starting with (O))."
+            configMenu.AddBoolOption(ModManifest,
+                () => Config.CategoryFilters.Objects,
+                v => Config.CategoryFilters.Objects = v,
+                name: () => Helper.Translation.Get("category.objects"),
+                tooltip: () => Helper.Translation.Get("category.objects.tooltip")
             );
 
-            configMenu.AddBoolOption(
-                mod: this.ModManifest,
-                getValue: () => Config.CategoryFilters.Artifacts,
-                setValue: value => Config.CategoryFilters.Artifacts = value,
-                name: () => "Artifacts",
-                tooltip: () => "Filter all artifacts."
+            configMenu.AddBoolOption(ModManifest,
+                () => Config.CategoryFilters.Artifacts,
+                v => Config.CategoryFilters.Artifacts = v,
+                name: () => Helper.Translation.Get("category.artifacts"),
+                tooltip: () => Helper.Translation.Get("category.artifacts.tooltip")
             );
 
             // SUBCATEGORIES
-            configMenu.AddSectionTitle(this.ModManifest, () => "Subcategories");
-            configMenu.AddParagraph(this.ModManifest, () => "These use the game's object categories (like Fish, Milk, Monster Loot, etc.) to filter more specific groups.");
+            configMenu.AddSectionTitle(ModManifest, () => Helper.Translation.Get("subcategory.title"));
+            configMenu.AddParagraph(ModManifest, () => Helper.Translation.Get("subcategory.description"));
 
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Fish, v => Config.CategoryFilters.Fish = v,
-                name: () => "Fish", tooltip: () => "Filter all items in the Fish category.");
+            void AddSub(string key, Func<bool> g, Action<bool> s)
+            {
+                configMenu.AddBoolOption(
+                    ModManifest,
+                    getValue: g,
+                    setValue: s,
+                    name: () => Helper.Translation.Get($"subcategory.{key}"),
+                    tooltip: () => Helper.Translation.Get($"subcategory.{key}.tooltip")
+                );
+            }
 
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Eggs, v => Config.CategoryFilters.Eggs = v,
-                name: () => "Eggs", tooltip: () => "Filter all items in the Egg category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Milk, v => Config.CategoryFilters.Milk = v,
-                name: () => "Milk", tooltip: () => "Filter all items in the Milk category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Food, v => Config.CategoryFilters.Food = v,
-                name: () => "Food (Cooking)", tooltip: () => "Filter all cooked food items (Cooking category).");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.CraftingMaterials, v => Config.CategoryFilters.CraftingMaterials = v,
-                name: () => "Crafting Materials", tooltip: () => "Filter all items in the Crafting category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.BigCraftables, v => Config.CategoryFilters.BigCraftables = v,
-                name: () => "Big Craftables", tooltip: () => "Filter items that are big craftables.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Minerals, v => Config.CategoryFilters.Minerals = v,
-                name: () => "Minerals", tooltip: () => "Filter all items in the Minerals category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Meat, v => Config.CategoryFilters.Meat = v,
-                name: () => "Meat", tooltip: () => "Filter all items in the Meat category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.MetalResources, v => Config.CategoryFilters.MetalResources = v,
-                name: () => "Metal Resources", tooltip: () => "Filter all items in the Metal Resources category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.BuildingResources, v => Config.CategoryFilters.BuildingResources = v,
-                name: () => "Building Resources", tooltip: () => "Filter all items in the Building Resources category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.PierreShopItems, v => Config.CategoryFilters.PierreShopItems = v,
-                name: () => "Pierre Shop Items", tooltip: () => "Filter items marked as sold at Pierre's.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.GusShopItems, v => Config.CategoryFilters.GusShopItems = v,
-                name: () => "Gus Shop Items", tooltip: () => "Filter items marked as sold at Gus's.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Fertilizer, v => Config.CategoryFilters.Fertilizer = v,
-                name: () => "Fertilizer", tooltip: () => "Filter all fertilizers.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Junk, v => Config.CategoryFilters.Junk = v,
-                name: () => "Junk / Trash", tooltip: () => "Filter junk or trash-category items.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Bait, v => Config.CategoryFilters.Bait = v,
-                name: () => "Bait", tooltip: () => "Filter all bait items.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Tackle, v => Config.CategoryFilters.Tackle = v,
-                name: () => "Tackle", tooltip: () => "Filter all tackle items.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Ingredients, v => Config.CategoryFilters.Ingredients = v,
-                name: () => "Ingredients", tooltip: () => "Filter all items in the Ingredients category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.ArtisanGoods, v => Config.CategoryFilters.ArtisanGoods = v,
-                name: () => "Artisan Goods", tooltip: () => "Filter all items in the Artisan Goods category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Syrups, v => Config.CategoryFilters.Syrups = v,
-                name: () => "Syrups", tooltip: () => "Filter all items in the Syrups category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.MonsterLoot, v => Config.CategoryFilters.MonsterLoot = v,
-                name: () => "Monster Loot", tooltip: () => "Filter all items in the Monster Loot category.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Seeds, v => Config.CategoryFilters.Seeds = v,
-                name: () => "Seeds", tooltip: () => "Filter all seeds.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Vegetables, v => Config.CategoryFilters.Vegetables = v,
-                name: () => "Vegetables", tooltip: () => "Filter all vegetables.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Fruit, v => Config.CategoryFilters.Fruit = v,
-                name: () => "Fruit", tooltip: () => "Filter all fruits.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Flowers, v => Config.CategoryFilters.Flowers = v,
-                name: () => "Flowers", tooltip: () => "Filter all flowers.");
-
-            configMenu.AddBoolOption(this.ModManifest, () => Config.CategoryFilters.Forage, v => Config.CategoryFilters.Forage = v,
-                name: () => "Forage", tooltip: () => "Filter all foraged items.");
+            AddSub("fish", () => Config.CategoryFilters.Fish, v => Config.CategoryFilters.Fish = v);
+            AddSub("eggs", () => Config.CategoryFilters.Eggs, v => Config.CategoryFilters.Eggs = v);
+            AddSub("milk", () => Config.CategoryFilters.Milk, v => Config.CategoryFilters.Milk = v);
+            AddSub("food", () => Config.CategoryFilters.Food, v => Config.CategoryFilters.Food = v);
+            AddSub("crafting", () => Config.CategoryFilters.CraftingMaterials, v => Config.CategoryFilters.CraftingMaterials = v);
+            AddSub("bigcraftables", () => Config.CategoryFilters.BigCraftables, v => Config.CategoryFilters.BigCraftables = v);
+            AddSub("minerals", () => Config.CategoryFilters.Minerals, v => Config.CategoryFilters.Minerals = v);
+            AddSub("meat", () => Config.CategoryFilters.Meat, v => Config.CategoryFilters.Meat = v);
+            AddSub("metal", () => Config.CategoryFilters.MetalResources, v => Config.CategoryFilters.MetalResources = v);
+            AddSub("building", () => Config.CategoryFilters.BuildingResources, v => Config.CategoryFilters.BuildingResources = v);
+            AddSub("pierre", () => Config.CategoryFilters.PierreShopItems, v => Config.CategoryFilters.PierreShopItems = v);
+            AddSub("gus", () => Config.CategoryFilters.GusShopItems, v => Config.CategoryFilters.GusShopItems = v);
+            AddSub("fertilizer", () => Config.CategoryFilters.Fertilizer, v => Config.CategoryFilters.Fertilizer = v);
+            AddSub("junk", () => Config.CategoryFilters.Junk, v => Config.CategoryFilters.Junk = v);
+            AddSub("bait", () => Config.CategoryFilters.Bait, v => Config.CategoryFilters.Bait = v);
+            AddSub("tackle", () => Config.CategoryFilters.Tackle, v => Config.CategoryFilters.Tackle = v);
+            AddSub("ingredients", () => Config.CategoryFilters.Ingredients, v => Config.CategoryFilters.Ingredients = v);
+            AddSub("artisangoods", () => Config.CategoryFilters.ArtisanGoods, v => Config.CategoryFilters.ArtisanGoods = v);
+            AddSub("syrups", () => Config.CategoryFilters.Syrups, v => Config.CategoryFilters.Syrups = v);
+            AddSub("monsterloot", () => Config.CategoryFilters.MonsterLoot, v => Config.CategoryFilters.MonsterLoot = v);
+            AddSub("seeds", () => Config.CategoryFilters.Seeds, v => Config.CategoryFilters.Seeds = v);
+            AddSub("vegetables", () => Config.CategoryFilters.Vegetables, v => Config.CategoryFilters.Vegetables = v);
+            AddSub("fruit", () => Config.CategoryFilters.Fruit, v => Config.CategoryFilters.Fruit = v);
+            AddSub("flowers", () => Config.CategoryFilters.Flowers, v => Config.CategoryFilters.Flowers = v);
+            AddSub("forage", () => Config.CategoryFilters.Forage, v => Config.CategoryFilters.Forage = v);
         }
+
+
+
 
         private void Input_ButtonPressed(object? sender, ButtonPressedEventArgs e)
         {
